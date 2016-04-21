@@ -21,6 +21,9 @@ public class playerControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		if (!canMove) {
+			return;
+		}else{
 		//if (canMove) {
 			
 			if (Input.GetAxis ("Horizontal") != 0) {
@@ -36,7 +39,7 @@ public class playerControl : MonoBehaviour {
 
 			}
 		//}
-
+		}
 	
 	}
 }

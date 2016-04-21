@@ -35,10 +35,10 @@ public class textBoxManager : MonoBehaviour {
 		}
 
 		if (isActive) {
-			EnableTextBox ();
+			EnableTextBox();
 
 		} else {
-			DisableTextBox ();
+			DisableTextBox();
 		}
 	}
 
@@ -48,7 +48,7 @@ public class textBoxManager : MonoBehaviour {
 			return;
 
 //			if (textBox.activeInHierarchy){
-				DisableTextBox();
+//				DisableTextBox();
 //			}
 		} else {
 			EnableTextBox ();
@@ -71,10 +71,26 @@ public class textBoxManager : MonoBehaviour {
 	public void EnableTextBox(){
 		
 		textBox.SetActive(true);
+		isActive = true;
+
+		if (stopPlayerMovement) {
+			player.GetComponent<playerControl> ().canMove = false;
+		}
 	}
 
 	public void DisableTextBox(){
 		
 		textBox.SetActive(false);
+
+		player.GetComponent<playerControl> ().canMove = true;
+	}
+
+	public void ReloadScript(TextAsset theText){
+
+		if (theText != null) {
+			textLines = new string[1];
+			textLines = (theText.text.Split('\n'));
+		}
+
 	}
 }

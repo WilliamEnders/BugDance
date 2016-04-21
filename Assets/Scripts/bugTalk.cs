@@ -17,7 +17,7 @@ public class bugTalk : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 		if (other.tag == "Player") {
 //			talking = true;
-			GetComponent<textBoxManager>().isActive = true;
+			//GetComponent<textBoxManager>().isActive = true;
 		}
 	}
 
