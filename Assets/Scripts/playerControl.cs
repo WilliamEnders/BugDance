@@ -23,8 +23,8 @@ public class playerControl : MonoBehaviour {
 
 		if (!canMove) {
 			return;
+
 		}else{
-		//if (canMove) {
 			
 			if (Input.GetAxis ("Horizontal") != 0) {
 				//go left
@@ -38,8 +38,6 @@ public class playerControl : MonoBehaviour {
 				}
 
 			}
-		//}
 		}
-	
 	}
 }
