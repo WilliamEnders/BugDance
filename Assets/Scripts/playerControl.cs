@@ -21,10 +21,10 @@ public class playerControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (!canMove) {
-			return;
-
-		}else{
+//		if (!canMove) {
+//			return;
+//
+//		}else{
 			
 			if (Input.GetAxis ("Horizontal") != 0) {
 				//go left
@@ -37,7 +37,7 @@ public class playerControl : MonoBehaviour {
 					transform.position += new Vector3 (playerSpeed * Time.deltaTime, 0, 0);
 				}
 
-			}
+			//}
 		}
 	}
 }

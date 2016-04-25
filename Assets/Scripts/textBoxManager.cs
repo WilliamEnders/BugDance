@@ -11,8 +11,6 @@ public class textBoxManager : MonoBehaviour {
 	public string[] textLines;
 
 	public GameObject buttons;
-//	public Button leftButton;
-//	public Button rightButton;
 
 	public int currentLine;
 	public int endAtLine;
@@ -20,14 +18,17 @@ public class textBoxManager : MonoBehaviour {
 //	public PlayerController player;
 	GameObject player;
 
-	public bool isActive = false;
-	public bool showButton = false;
-	public bool stopPlayerMovement = false;
+	bool isActive = false;
+	bool showButton = false;
+//	bool stopPlayerMovement = false;
+
+//	public string[] dialogues;
+	int dialoguePart = 1;
 
 	void Start(){
 
 //		player = GameObject.FindObjectOfType<playerControl>();
-		player = GameObject.FindGameObjectWithTag("Player");
+//		player = GameObject.FindGameObjectWithTag("Player");
 
 		if (textFiles != null) {
 			textLines = (textFiles.text.Split('\n'));
@@ -54,26 +55,27 @@ public class textBoxManager : MonoBehaviour {
 
 		if (!isActive) {
 			return;
-
 		} else {
+			
 			EnableTextBox ();
-		}
+			theText.text = textLines [currentLine];
 
-		theText.text = textLines [currentLine];
-
-		if (Input.GetKeyDown (KeyCode.Return)) {
-			currentLine++;
+			if (Input.GetKeyDown (KeyCode.Return)) {
+			
+//				if (currentLine >= endAtLine) {
+//					currentLine = endAtLine;
+//				} else {
+					currentLine++;
+//				}
+			}
 		}
 
 		if (currentLine == endAtLine) {
 			
 			EnableButton ();
 
-		}else if (currentLine > endAtLine) {
-			
+		} else if (currentLine > endAtLine) {
 			//DisableTextBox ();
-			//DisableButton ();
-
 			isActive = false;
 		}
 	}
@@ -85,16 +87,16 @@ public class textBoxManager : MonoBehaviour {
 		textBox.SetActive(true);
 		isActive = true;
 
-		if (stopPlayerMovement) {
-			player.GetComponent<playerControl> ().canMove = false;
-		}
+//		if (stopPlayerMovement) {
+//			player.GetComponent<playerControl> ().canMove = false;
+//		}
 	}
 
 	public void DisableTextBox(){
 		
 		textBox.SetActive(false);
 
-		player.GetComponent<playerControl> ().canMove = true;
+//		player.GetComponent<playerControl> ().canMove = true;
 	}
 
 	public void EnableButton(){
@@ -117,4 +119,21 @@ public class textBoxManager : MonoBehaviour {
 		}
 
 	}
+
+	public void LoadNextDialogue1(){
+//		currentLine = 7;
+//		endAtLine = 7;
+		theText.text = textLines [7];
+
+	}
+
+	public void LoadNextDialogue2(){
+
+//		currentLine = 9;
+//		endAtLine = 9;
+
+		theText.text = textLines [9];
+
+	}
+
 }
