@@ -9,8 +9,17 @@ public class takePicture : MonoBehaviour {
 
 	private Vector2 mouseVel;
 
+	private playerControl cont;
+
+	void Start(){
+		cont = GetComponentInParent<playerControl> ();
+	}
+
 
 	void Update(){
+
+		if(cont.canMove){
+
 		if(Input.GetMouseButtonDown(0)){
 			grab = true;
 		}
@@ -42,7 +51,7 @@ public class takePicture : MonoBehaviour {
 			}
 		}
 
-
+		}
 
 
 	}

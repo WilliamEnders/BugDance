@@ -61,7 +61,7 @@ public class textBoxManager : MonoBehaviour {
 
 		theText.text = textLines [currentLine];
 
-		if (Input.GetKeyDown (KeyCode.Return)) {
+		if (Input.GetMouseButtonDown(0)) {
 			currentLine++;
 		}
 
