@@ -24,7 +24,7 @@ public class textBoxManager : MonoBehaviour {
 	void Start(){
 
 //		player = GameObject.FindObjectOfType<playerControl>();
-		player = GameObject.Find("Player");
+		player = GameObject.FindGameObjectWithTag("Player");
 
 		if (textFiles != null) {
 			textLines = (textFiles.text.Split('\n'));
