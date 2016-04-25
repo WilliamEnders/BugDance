@@ -22,7 +22,7 @@ public class textBoxManager : MonoBehaviour {
 
 	public bool isActive = false;
 	public bool showButton = false;
-	public bool stopPlayerMovement = false;
+	public bool stopPlayerMovement;
 
 	void Start(){
 

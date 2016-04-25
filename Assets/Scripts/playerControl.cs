@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class playerControl : MonoBehaviour {
 
-	float playerSpeed = 5.0f;
 
 	public TextAsset textFiles;
 	public string[] textLines;
@@ -19,25 +19,12 @@ public class playerControl : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-
-		if (!canMove) {
-			return;
-
-		}else{
-			
-			if (Input.GetAxis ("Horizontal") != 0) {
-				//go left
-				if (Input.GetAxisRaw ("Horizontal") < 0) {
-
-					transform.position -= new Vector3 (playerSpeed * Time.deltaTime, 0, 0);
-				//go right
-				} else if (Input.GetAxisRaw ("Horizontal") > 0) {
-					
-					transform.position += new Vector3 (playerSpeed * Time.deltaTime, 0, 0);
-				}
-
-			}
+	void Update(){
+		if (canMove) {
+			GetComponent<FirstPersonController> ().m_WalkSpeed = 5;
+		} else {
+			GetComponent<FirstPersonController> ().m_WalkSpeed = 0;
 		}
 	}
+
 }
