@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using UnityEngine.Networking;
-
 
 public class textBoxManager : MonoBehaviour {
 
@@ -12,6 +10,10 @@ public class textBoxManager : MonoBehaviour {
 	public TextAsset textFiles;
 	public string[] textLines;
 
+	public GameObject buttons;
+//	public Button leftButton;
+//	public Button rightButton;
+
 	public int currentLine;
 	public int endAtLine;
 
@@ -19,6 +21,7 @@ public class textBoxManager : MonoBehaviour {
 	GameObject player;
 
 	public bool isActive = false;
+	public bool showButton = false;
 	public bool stopPlayerMovement = false;
 
 	void Start(){
@@ -35,10 +38,15 @@ public class textBoxManager : MonoBehaviour {
 		}
 
 		if (isActive) {
-			EnableTextBox();
-
+			EnableTextBox ();
 		} else {
 			DisableTextBox();
+		}
+
+		if (showButton) {
+			EnableButton ();
+		}else {
+			DisableButton();
 		}
 	}
 
@@ -60,8 +68,15 @@ public class textBoxManager : MonoBehaviour {
 			currentLine++;
 		}
 
-		if (currentLine > endAtLine) {
+		if (currentLine == endAtLine) {
+			
+			EnableButton ();
+
+		}else if (currentLine > endAtLine) {
+			
 			DisableTextBox ();
+			DisableButton ();
+
 			isActive = false;
 		}
 	}
@@ -83,6 +98,18 @@ public class textBoxManager : MonoBehaviour {
 		textBox.SetActive(false);
 
 		player.GetComponent<playerControl> ().canMove = true;
+	}
+
+	public void EnableButton(){
+
+		buttons.SetActive (true);
+
+	}
+
+	public void DisableButton(){
+
+		buttons.SetActive (false);
+
 	}
 
 	public void ReloadScript(TextAsset theText){
