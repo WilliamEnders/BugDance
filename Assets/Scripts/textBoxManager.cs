@@ -55,9 +55,6 @@ public class textBoxManager : MonoBehaviour {
 		if (!isActive) {
 			return;
 
-//			if (textBox.activeInHierarchy){
-//				DisableTextBox();
-//			}
 		} else {
 			EnableTextBox ();
 		}
@@ -74,8 +71,8 @@ public class textBoxManager : MonoBehaviour {
 
 		}else if (currentLine > endAtLine) {
 			
-			DisableTextBox ();
-			DisableButton ();
+			//DisableTextBox ();
+			//DisableButton ();
 
 			isActive = false;
 		}
@@ -107,7 +104,7 @@ public class textBoxManager : MonoBehaviour {
 	}
 
 	public void DisableButton(){
-
+		
 		buttons.SetActive (false);
 
 	}
