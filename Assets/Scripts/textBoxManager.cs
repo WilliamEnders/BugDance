@@ -26,7 +26,11 @@ public class textBoxManager : MonoBehaviour {
 	public bool showDance;
 	public bool findLeave;
 
+	private playerControl move;
+
 	void Start(){
+
+		move = GameObject.Find ("FPSController").GetComponent<playerControl>();
 
 		leftClicked = 0;
 		rightClicked = 0;
@@ -58,6 +62,10 @@ public class textBoxManager : MonoBehaviour {
 	}
 
 	void Update(){
+
+		if(dialogFinished){
+			move.canMove = true;
+		}
 
 		if (!isActive) {
 			return;

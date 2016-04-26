@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using UnityStandardAssets.Characters.FirstPerson;
 
 public class activateText : MonoBehaviour {
 
@@ -14,15 +13,16 @@ public class activateText : MonoBehaviour {
 
 	public bool destroyIt;
 
-	private FirstPersonController fps;
+	private playerControl move;
 	private RaycastHit hit;
 
 	private Transform cam;
 
 	// Use this for initialization
 	void Start () {
+		move = GameObject.Find ("FPSController").GetComponent<playerControl>();
 		theTextBox = GameObject.FindObjectOfType<textBoxManager> ();
-		fps = GameObject.Find ("FPSController").GetComponent<FirstPersonController> ();
+
 		cam = GameObject.Find ("FirstPersonCharacter").transform;
 
 		startLine = 0;
@@ -34,7 +34,9 @@ public class activateText : MonoBehaviour {
 		if (other.tag == "Player" && Input.GetKey(KeyCode.E)) {
 			if (Physics.Raycast (cam.transform.position, cam.transform.forward, out hit, 100.0f)) {
 				if (hit.transform.CompareTag ("Character")) {
-					fps.m_MouseLook.SetCursorLock (false);
+					
+					move.canMove = false;
+
 
 					if (theTextBox.showDance && theTextBox.dialogFinished) {
 						

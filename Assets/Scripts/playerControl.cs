@@ -8,11 +8,11 @@ public class playerControl : MonoBehaviour {
 
 	public TextAsset textFiles;
 	public string[] textLines;
-
+	private FirstPersonController fps;
 	public bool canMove;
 
 	void Start(){
-		
+		fps = GameObject.Find ("FPSController").GetComponent<FirstPersonController> ();
 		if (textFiles != null) {
 			textLines = (textFiles.text.Split());
 		}
@@ -24,8 +24,10 @@ public class playerControl : MonoBehaviour {
 	void Update(){
 		if (canMove) {
 			GetComponent<FirstPersonController> ().m_WalkSpeed = 5;
+			fps.m_MouseLook.SetCursorLock (true);
 		} else {
 			GetComponent<FirstPersonController> ().m_WalkSpeed = 0;
+			fps.m_MouseLook.SetCursorLock (false);
 		}
 
 	}
