@@ -11,23 +11,18 @@ public class textBoxManager : MonoBehaviour {
 	public string[] textLines;
 
 	public GameObject buttons;
-//	public Button leftButton;
-//	public Button rightButton;
+	int leftClicked = 0;
+	int rightClicked = 0;
 
 	public int currentLine;
 	public int endAtLine;
-
-//	public PlayerController player;
-	GameObject player;
 
 	public bool isActive = false;
 	public bool showButton = false;
 	public bool stopPlayerMovement;
 
-	void Start(){
 
-//		player = GameObject.FindObjectOfType<playerControl>();
-		player = GameObject.FindGameObjectWithTag("Player");
+	void Start(){
 
 		if (textFiles != null) {
 			textLines = (textFiles.text.Split('\n'));
@@ -57,44 +52,34 @@ public class textBoxManager : MonoBehaviour {
 
 		} else {
 			EnableTextBox ();
-		}
+		
+			theText.text = textLines [currentLine];
 
-		theText.text = textLines [currentLine];
+			if (Input.GetMouseButtonDown (0) || Input.GetKeyDown(KeyCode.Return) ) {
+				currentLine++;
+			}
 
-		if (Input.GetMouseButtonDown(0)) {
-			currentLine++;
-		}
-
-		if (currentLine == endAtLine) {
+			if (currentLine == endAtLine) {
 			
-			EnableButton ();
+				EnableButton ();
 
-		}else if (currentLine > endAtLine) {
-			
-			//DisableTextBox ();
-			//DisableButton ();
+			} else if (currentLine > endAtLine) {
 
-			isActive = false;
+				isActive = false;
+			}
 		}
 	}
-
-
 
 	public void EnableTextBox(){
 		
 		textBox.SetActive(true);
 		isActive = true;
 
-		if (stopPlayerMovement) {
-			player.GetComponent<playerControl> ().canMove = false;
-		}
 	}
 
 	public void DisableTextBox(){
 		
 		textBox.SetActive(false);
-
-		player.GetComponent<playerControl> ().canMove = true;
 	}
 
 	public void EnableButton(){
@@ -117,4 +102,19 @@ public class textBoxManager : MonoBehaviour {
 		}
 
 	}
+
+	public void LoadNextDialogue1(){
+
+		leftClicked ++;
+		theText.text = textLines [7];
+
+	}
+
+	public void LoadNextDialogue2(){
+
+		rightClicked++;
+		theText.text = textLines [9];
+
+	}
+
 }
