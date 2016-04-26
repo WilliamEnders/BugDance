@@ -132,7 +132,7 @@ public class textBoxManager : MonoBehaviour {
 	public void LoadNextDialogue1(){
 
 		leftClicked++;
-		print ("leftClicked:" + leftClicked + ", rightClicked:" + rightClicked);
+//		print ("leftClicked:" + leftClicked + ", rightClicked:" + rightClicked);
 
 		if (!dialogFinished) {
 			
@@ -175,7 +175,7 @@ public class textBoxManager : MonoBehaviour {
 	public void LoadNextDialogue2(){
 
 		rightClicked++;
-		print ("leftClicked:" + leftClicked + ", rightClicked:" + rightClicked);
+//		print ("leftClicked:" + leftClicked + ", rightClicked:" + rightClicked);
 
 		if (!dialogFinished) {
 			
