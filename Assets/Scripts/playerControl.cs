@@ -9,13 +9,15 @@ public class playerControl : MonoBehaviour {
 	public TextAsset textFiles;
 	public string[] textLines;
 
-	public bool canMove = true;
+	public bool canMove;
 
 	void Start(){
 		
 		if (textFiles != null) {
 			textLines = (textFiles.text.Split());
 		}
+
+		canMove = true;
 	}
 	
 	// Update is called once per frame
@@ -25,6 +27,7 @@ public class playerControl : MonoBehaviour {
 		} else {
 			GetComponent<FirstPersonController> ().m_WalkSpeed = 0;
 		}
+
 	}
 
 }

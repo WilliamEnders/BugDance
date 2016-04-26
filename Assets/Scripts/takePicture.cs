@@ -18,38 +18,38 @@ public class takePicture : MonoBehaviour {
 
 	void Update(){
 
-		if(cont.canMove){
+		if (cont.canMove) {
 
-		if(Input.GetMouseButtonDown(0)){
-			grab = true;
-		}
+			if (Input.GetMouseButtonDown (0)) {
+				grab = true;
+			}
 
-		if(Input.GetMouseButtonDown(1)){
-			if (Physics.Raycast (transform.position + transform.forward, transform.forward, out hit, 100.0f)) {
-				if(hit.transform.CompareTag("PickUp")){
-					hit.transform.GetComponent<Rigidbody> ().useGravity = false;
-					hit.transform.parent = transform;
+			if (Input.GetMouseButtonDown (1)) {
+				if (Physics.Raycast (transform.position + transform.forward, transform.forward, out hit, 100.0f)) {
+					if (hit.transform.CompareTag ("PickUp")) {
+						hit.transform.GetComponent<Rigidbody> ().useGravity = false;
+						hit.transform.parent = transform;
 
+					}
 				}
 			}
-		}
-		if (Input.GetMouseButton (1)) {
+			if (Input.GetMouseButton (1)) {
 
-			mouseVel = new Vector2 (Input.GetAxis("Mouse X"),Input.GetAxis("Mouse Y"));
+				mouseVel = new Vector2 (Input.GetAxis ("Mouse X"), Input.GetAxis ("Mouse Y"));
 
-			if (hit.transform.CompareTag ("PickUp")) {
-				hit.transform.position = transform.position + transform.forward;
-				hit.transform.rotation = transform.rotation;
+				if (hit.transform.CompareTag ("PickUp")) {
+					hit.transform.position = transform.position + transform.forward;
+					hit.transform.rotation = transform.rotation;
+				}
 			}
-		}
-		if(Input.GetMouseButtonUp(1)){
-			if (hit.transform.CompareTag ("PickUp")) {
-				hit.transform.GetComponent<Rigidbody> ().useGravity = true;
-				hit.transform.parent = null;
-				hit.transform.GetComponent<Rigidbody> ().AddForce (transform.right * (mouseVel.x * 100f));
-				hit.transform.GetComponent<Rigidbody> ().AddForce (transform.up * (mouseVel.y * 100f));
+			if (Input.GetMouseButtonUp (1)) {
+				if (hit.transform.CompareTag ("PickUp")) {
+					hit.transform.GetComponent<Rigidbody> ().useGravity = true;
+					hit.transform.parent = null;
+					hit.transform.GetComponent<Rigidbody> ().AddForce (transform.right * (mouseVel.x * 100f));
+					hit.transform.GetComponent<Rigidbody> ().AddForce (transform.up * (mouseVel.y * 100f));
+				}
 			}
-		}
 
 		}
 
