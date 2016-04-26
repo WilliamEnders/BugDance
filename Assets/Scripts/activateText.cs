@@ -7,8 +7,8 @@ public class activateText : MonoBehaviour {
 
 	public TextAsset theText;
 
-	public int startLine;
-	public int endLine;
+	int startLine;
+	int endLine;
 
 	public textBoxManager theTextBox;
 
@@ -24,6 +24,9 @@ public class activateText : MonoBehaviour {
 		theTextBox = GameObject.FindObjectOfType<textBoxManager> ();
 		fps = GameObject.Find ("FPSController").GetComponent<FirstPersonController> ();
 		cam = GameObject.Find ("FirstPersonCharacter").transform;
+
+		startLine = 0;
+		endLine = 2;
 	}
 
 	void OnTriggerStay(Collider other){
@@ -32,10 +35,21 @@ public class activateText : MonoBehaviour {
 			if (Physics.Raycast (cam.transform.position, cam.transform.forward, out hit, 100.0f)) {
 				if (hit.transform.CompareTag ("Character")) {
 					fps.m_MouseLook.SetCursorLock (false);
-					theTextBox.ReloadScript (theText);
-					theTextBox.currentLine = startLine;
-					theTextBox.endAtLine = endLine;
-					theTextBox.EnableTextBox ();
+
+					if (theTextBox.showDance && theTextBox.dialogFinished) {
+						
+						theTextBox.theText.text = "Hold your camera!";
+
+					} else if (theTextBox.findLeave && theTextBox.dialogFinished) {
+
+						theTextBox.theText.text = "Did you find some great leaves?";
+
+					} else {
+							theTextBox.LoadScript (theText);
+							theTextBox.currentLine = startLine;
+							theTextBox.endAtLine = endLine;
+							theTextBox.EnableTextBox ();
+					}
 				}
 			}
 		}
