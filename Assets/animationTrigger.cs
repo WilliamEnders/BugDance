@@ -16,8 +16,12 @@ public class animationTrigger : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (Caterpillar.GetComponent<textBoxManager> ().showDance) {
+		if (Caterpillar.GetComponent<textBoxManager> ().showDance == true) {
 			animator.SetBool ("startDance", true);
+		}
+
+		if (Caterpillar.GetComponent<textBoxManager> ().showDance == true) {
+			animator.SetBool ("startWalk", true);
 		}
 	
 	}
