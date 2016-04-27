@@ -22,9 +22,10 @@ public class textBoxManager : MonoBehaviour {
 	bool isActive;
 	bool showButton;
 
-	public bool dialogFinished;
+	public bool isTalking;
 	public bool showDance;
 	public bool findLeave;
+	public bool talked;
 
 	private playerControl move;
 
@@ -39,6 +40,8 @@ public class textBoxManager : MonoBehaviour {
 		showButton = false;
 		showDance = false;
 		findLeave = false;
+
+		isTalking = false;
 
 		if (textFiles != null) {
 			textLines = (textFiles.text.Split('\n'));
@@ -63,7 +66,7 @@ public class textBoxManager : MonoBehaviour {
 
 	void Update(){
 
-		if(dialogFinished){
+		if (!isTalking) {
 			move.canMove = true;
 		}
 
@@ -74,20 +77,32 @@ public class textBoxManager : MonoBehaviour {
 			
 			EnableTextBox ();
 		
-			theText.text = textLines [currentLine];
+			if (!talked) {
+				
+				theText.text = textLines [currentLine];
 
-			if (Input.GetMouseButtonDown (0) || Input.GetKeyDown(KeyCode.Return) ) {
+			} else { 
+				
+				if (showDance) {
+					theText.text = "Hold your camera!";
+				}
+				if (findLeave) {
+					theText.text = "Did you find some great leaves?";
+				}
+			}
+				
+
+			if ((Input.GetMouseButtonDown (0) || Input.GetKeyDown(KeyCode.Return)) && !talked ) {
 				
 				currentLine++;
-
-//				print (currentLine);
-//				print (endAtLine);
 
 			}
 
 			if (currentLine == endAtLine) {
-				
-				EnableButton ();
+
+				if (!talked) {
+					EnableButton ();
+				}
 
 			}else if (currentLine > endAtLine) {
 
@@ -95,12 +110,13 @@ public class textBoxManager : MonoBehaviour {
 			}
 		}
 			
-//		print (dialogFinished);
-//		if (dialogFinished && Input.GetKeyDown (KeyCode.Return)) {
+//		print (isTalking);
+//		if (isTalking && Input.GetKeyDown (KeyCode.Return)) {
 //				
 //			DisableTextBox ();
-//			dialogFinished = false;
+//			isTalking = false;
 //		}
+
 
 	}
 
@@ -109,16 +125,21 @@ public class textBoxManager : MonoBehaviour {
 		textBox.SetActive(true);
 		isActive = true;
 
+		isTalking = true;
+
 	}
 
 	public void DisableTextBox(){
 		
 		textBox.SetActive(false);
+		isTalking = false;
 	}
 
 	public void EnableButton(){
 
 		buttons.SetActive (true);
+		GameObject.Find ("LeftButton").SetActive (true);
+		GameObject.Find ("RightButton").SetActive (true);
 
 	}
 
@@ -142,7 +163,7 @@ public class textBoxManager : MonoBehaviour {
 		leftClicked++;
 //		print ("leftClicked:" + leftClicked + ", rightClicked:" + rightClicked);
 
-		if (!dialogFinished) {
+		if (isTalking) {
 			
 			if (leftClicked == 1) {
 				theText.text = textLines [5];
@@ -152,9 +173,6 @@ public class textBoxManager : MonoBehaviour {
 
 			if (leftClicked == 2 && rightClicked == 0) {
 				theText.text = textLines [10];
-//			DisableButton ();
-//			dialogFinished = true;
-//			print (dialogFinished);
 				leftButtonText.text = "Cool!";
 				GameObject.Find ("RightButton").SetActive (false);
 			}
@@ -165,7 +183,6 @@ public class textBoxManager : MonoBehaviour {
 				GameObject.Find ("RightButton").SetActive (false);
 
 				findLeave = true;
-				dialogFinished = true;
 			}
 
 		}
@@ -175,8 +192,9 @@ public class textBoxManager : MonoBehaviour {
 			DisableTextBox ();
 
 			showDance = true;
-			dialogFinished = true;
+			isTalking = false;
 
+			talked = true;
 		}
 	}
 
@@ -185,7 +203,7 @@ public class textBoxManager : MonoBehaviour {
 		rightClicked++;
 //		print ("leftClicked:" + leftClicked + ", rightClicked:" + rightClicked);
 
-		if (!dialogFinished) {
+		if (isTalking) {
 			
 			if (rightClicked == 1) {
 				theText.text = textLines [7];
@@ -196,13 +214,12 @@ public class textBoxManager : MonoBehaviour {
 			if (rightClicked == 2) {
 				theText.text = textLines [12];
 //				DisableButton ();
-//				dialogFinished = true;
-//				print (dialogFinished);
+//				isTalking = true;
+//				print (isTalking);
 				rightButtonText.text = "Cool!";
 				GameObject.Find ("LeftButton").SetActive (false);
 
-				showDance = true;
-				dialogFinished = true;
+//				showDance = true;
 
 			}
 
@@ -212,8 +229,6 @@ public class textBoxManager : MonoBehaviour {
 				GameObject.Find ("LeftButton").SetActive (false);
 
 				findLeave = true;
-				dialogFinished = true;
-
 			}
 
 		}
@@ -223,9 +238,10 @@ public class textBoxManager : MonoBehaviour {
 			DisableButton ();
 			DisableTextBox ();
 
-			findLeave = true;
-			dialogFinished = true;
+//			findLeave = true;
+			isTalking = false;
 
+			talked = true;
 
 		}
 	}
