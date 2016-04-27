@@ -37,21 +37,10 @@ public class activateText : MonoBehaviour {
 					
 					move.canMove = false;
 
-
-					if (theTextBox.showDance && theTextBox.dialogFinished) {
-						
-						theTextBox.theText.text = "Hold your camera!";
-
-					} else if (theTextBox.findLeave && theTextBox.dialogFinished) {
-
-						theTextBox.theText.text = "Did you find some great leaves?";
-
-					} else {
-							theTextBox.LoadScript (theText);
-							theTextBox.currentLine = startLine;
-							theTextBox.endAtLine = endLine;
-							theTextBox.EnableTextBox ();
-					}
+					theTextBox.LoadScript (theText);
+					theTextBox.currentLine = startLine;
+					theTextBox.endAtLine = endLine;
+					theTextBox.EnableTextBox ();
 				}
 			}
 		}
