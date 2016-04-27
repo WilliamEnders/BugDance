@@ -11,49 +11,88 @@ public class takePicture : MonoBehaviour {
 
 	private playerControl cont;
 
+	private Transform temp;
+	public bool cameraMode;
+	public bool pickUp;
+
+	public GameObject viewfinder;
+	private cameraFlash flash;
+	private float fov;
+
 	void Start(){
 		cont = GetComponentInParent<playerControl> ();
+		temp = null;
+		cameraMode = false;
+		pickUp = false;
+		viewfinder.SetActive (false);
+		flash = GameObject.Find ("Flash").GetComponent<cameraFlash> ();
+		fov = 60;
 	}
 
 
 	void Update(){
 
+		if(Input.GetMouseButtonDown (1) && !pickUp && cont.canMove){
+			cameraMode = true;
+			viewfinder.SetActive (true);
+			fov = 60;
+		}
+		if(Input.GetMouseButtonUp (1)){
+			cameraMode = false;
+			viewfinder.SetActive (false);
+			GetComponent<Camera> ().fieldOfView = 60;
+		}
+
+		if(cameraMode){
+			GetComponent<Camera> ().fieldOfView = fov;
+			if (fov <= 60 && fov >= 10) {
+				fov += Input.GetAxis ("Mouse ScrollWheel") * 6;
+			} else if(fov < 10){
+				fov = 10;
+			}else if(fov > 60){
+				fov = 60;
+			}
+		}
+
 		if (cont.canMove) {
 
-			if (Input.GetMouseButtonDown (0)) {
+			if (cameraMode && Input.GetMouseButtonDown (0)) {
 				grab = true;
+				flash.up = true;
 			}
 
-			if (Input.GetMouseButtonDown (1)) {
+			if (Input.GetMouseButtonDown (0) && !cameraMode) {
 				if (Physics.Raycast (transform.position + transform.forward, transform.forward, out hit, 100.0f)) {
 					if (hit.transform.CompareTag ("PickUp")) {
 						hit.transform.GetComponent<Rigidbody> ().useGravity = false;
 						hit.transform.parent = transform;
+						temp = hit.transform;
+						pickUp = true;
 
 					}
 				}
 			}
-			if (Input.GetMouseButton (1)) {
 
-				mouseVel = new Vector2 (Input.GetAxis ("Mouse X"), Input.GetAxis ("Mouse Y"));
-
-				if (hit.transform.CompareTag ("PickUp")) {
-					hit.transform.position = transform.position + transform.forward;
-					hit.transform.rotation = transform.rotation;
+			if (Input.GetMouseButton (0)) {
+				if(temp != null){
+					mouseVel = new Vector2 (Input.GetAxis ("Mouse X"), Input.GetAxis ("Mouse Y"));
+					temp.position = transform.position + transform.forward;
+					temp.rotation = transform.rotation;
 				}
 			}
-			if (Input.GetMouseButtonUp (1)) {
-				if (hit.transform.CompareTag ("PickUp")) {
-					hit.transform.GetComponent<Rigidbody> ().useGravity = true;
-					hit.transform.parent = null;
-					hit.transform.GetComponent<Rigidbody> ().AddForce (transform.right * (mouseVel.x * 100f));
-					hit.transform.GetComponent<Rigidbody> ().AddForce (transform.up * (mouseVel.y * 100f));
+
+			if (Input.GetMouseButtonUp (0)) {
+				if (temp != null) {
+					temp.GetComponent<Rigidbody> ().useGravity = true;
+					temp.parent = null;
+					temp.GetComponent<Rigidbody> ().AddForce (transform.right * (mouseVel.x * 100f));
+					temp.GetComponent<Rigidbody> ().AddForce (transform.up * (mouseVel.y * 100f));
+					temp = null;
+					pickUp = false;
 				}
 			}
 
 		}
-
-
 	}
 
 	void OnPostRender() {
