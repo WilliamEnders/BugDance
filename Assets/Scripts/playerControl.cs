@@ -10,6 +10,7 @@ public class playerControl : MonoBehaviour {
 	public string[] textLines;
 	private FirstPersonController fps;
 	public bool canMove;
+	public GameObject retical;
 
 	void Start(){
 		fps = GameObject.Find ("FPSController").GetComponent<FirstPersonController> ();
@@ -25,9 +26,11 @@ public class playerControl : MonoBehaviour {
 		if (canMove) {
 			GetComponent<FirstPersonController> ().m_WalkSpeed = 5;
 			fps.m_MouseLook.SetCursorLock (true);
+			retical.SetActive (true);
 		} else {
 			GetComponent<FirstPersonController> ().m_WalkSpeed = 0;
 			fps.m_MouseLook.SetCursorLock (false);
+			retical.SetActive (false);
 		}
 
 	}
