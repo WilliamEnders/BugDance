@@ -20,7 +20,7 @@ public class animationTrigger : MonoBehaviour {
 			animator.SetBool ("startDance", true);
 		}
 
-		if (Caterpillar.GetComponent<textBoxManager> ().showDance == true) {
+		if (Caterpillar.GetComponent<textBoxManager> ().findLeave == true) {
 			animator.SetBool ("startWalk", true);
 		}
 	

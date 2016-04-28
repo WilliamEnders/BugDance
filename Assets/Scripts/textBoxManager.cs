@@ -26,14 +26,11 @@ public class textBoxManager : MonoBehaviour {
 	public bool showDance;
 	public bool findLeave;
 
-	Animator animator;
-
 	private playerControl move;
 
 	void Start(){
 
 		move = GameObject.Find ("FPSController").GetComponent<playerControl>();
-		animator = GetComponent<Animator>();
 
 		leftClicked = 0;
 		rightClicked = 0;
