@@ -16,10 +16,19 @@ public class takePicture : MonoBehaviour {
 	public bool pickUp;
 
 	public GameObject viewfinder;
+	public GameObject inv;
+	private int invNum;
 	private cameraFlash flash;
 	private float fov;
 
+	public LayerMask layerMask;
+
+	private int timer;
+
+
 	void Start(){
+		invNum = 0;
+		timer = 0;
 		cont = GetComponentInParent<playerControl> ();
 		temp = null;
 		cameraMode = false;
@@ -32,14 +41,30 @@ public class takePicture : MonoBehaviour {
 
 	void Update(){
 
+		if(timer > 0){
+			timer--;
+		}
+
+		if(pickUp && Input.GetKeyDown(KeyCode.E)){
+			Destroy (temp.GetComponent<Rigidbody>());
+			Destroy (temp.GetComponentInChildren<BoxCollider>());
+			temp.transform.parent = inv.transform.GetChild (invNum);
+			temp.transform.localPosition = Vector3.back;
+			temp.transform.localScale = new Vector3 (50,50,50);
+			invNum++;
+			
+		}
+
 		if(Input.GetMouseButtonDown (1) && !pickUp && cont.canMove){
 			cameraMode = true;
 			viewfinder.SetActive (true);
+			inv.SetActive (false);
 			fov = 60;
 		}
 		if(Input.GetMouseButtonUp (1)){
 			cameraMode = false;
 			viewfinder.SetActive (false);
+			inv.SetActive (true);
 			GetComponent<Camera> ().fieldOfView = 60;
 		}
 
@@ -56,9 +81,10 @@ public class takePicture : MonoBehaviour {
 
 		if (cont.canMove) {
 
-			if (cameraMode && Input.GetMouseButtonDown (0)) {
+			if (cameraMode && Input.GetMouseButtonDown (0) && timer == 0) {
 				grab = true;
 				flash.up = true;
+				timer = 30;
 			}
 
 			if (Input.GetMouseButtonDown (0) && !cameraMode) {
@@ -75,18 +101,22 @@ public class takePicture : MonoBehaviour {
 
 			if (Input.GetMouseButton (0)) {
 				if(temp != null){
-					mouseVel = new Vector2 (Input.GetAxis ("Mouse X"), Input.GetAxis ("Mouse Y"));
-					temp.position = transform.position + transform.forward;
-					temp.rotation = transform.rotation;
+					if (temp.parent == transform) {
+						mouseVel = new Vector2 (Input.GetAxis ("Mouse X"), Input.GetAxis ("Mouse Y"));
+						temp.position = transform.position + transform.forward;
+						temp.rotation = transform.rotation;
+					}
 				}
 			}
 
 			if (Input.GetMouseButtonUp (0)) {
 				if (temp != null) {
+					if(temp.parent == transform){
 					temp.GetComponent<Rigidbody> ().useGravity = true;
 					temp.parent = null;
 					temp.GetComponent<Rigidbody> ().AddForce (transform.right * (mouseVel.x * 100f));
 					temp.GetComponent<Rigidbody> ().AddForce (transform.up * (mouseVel.y * 100f));
+					}
 					temp = null;
 					pickUp = false;
 				}
@@ -97,12 +127,27 @@ public class takePicture : MonoBehaviour {
 
 	void OnPostRender() {
 		if (grab) {
-			GameObject pol = Instantiate (polaroid,transform.position + transform.forward,transform.rotation) as GameObject;
-			Texture2D tex2D = new Texture2D(Screen.width, Screen.height);
-			tex2D.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0, false);
-			tex2D.Apply();
-			pol.GetComponent<Renderer>().material.mainTexture = tex2D;
-			grab = false;
+			
+				GameObject pol = Instantiate (polaroid, transform.position + transform.forward, transform.rotation) as GameObject;
+
+				Texture2D tex2D = new Texture2D (Screen.width, Screen.height);
+				tex2D.ReadPixels (new Rect (0, 0, Screen.width, Screen.height), 0, 0, false);
+				tex2D.Apply ();
+			pol.GetComponent<Renderer> ().material.mainTexture = tex2D;
+			pol.GetComponent<Renderer> ().material.SetTextureScale ("_MainTex", new Vector2(1/Camera.main.aspect,1f));
+			pol.GetComponent<Renderer> ().material.SetTextureOffset ("_MainTex", new Vector2((1-(1/Camera.main.aspect))*.5f,0f));
+
+			if (Physics.Raycast (transform.position + transform.forward, transform.forward, out hit, 100.0f,layerMask)) {
+				pol.GetComponent<pictureInfo> ().subject = hit.transform.name;
+				if(hit.transform.CompareTag("Character")){
+				pol.GetComponent<pictureInfo> ().isDancing = hit.transform.GetComponent<textBoxManager> ().showDance;
+				}
+			}
+			pol.transform.GetComponent<Rigidbody> ().useGravity = false;
+			pol.transform.parent = transform;
+			temp = pol.transform;
+			pickUp = true;
+				grab = false;
 		}
 	}
 }
