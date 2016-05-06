@@ -139,6 +139,7 @@ public class takePicture : MonoBehaviour {
 
 			if (Physics.Raycast (transform.position + transform.forward, transform.forward, out hit, 100.0f,layerMask)) {
 				pol.GetComponent<pictureInfo> ().subject = hit.transform.name;
+				pol.GetComponent<pictureInfo> ().texture = tex2D;
 				if(hit.transform.CompareTag("Character")){
 				pol.GetComponent<pictureInfo> ().isDancing = hit.transform.GetComponent<textBoxManager> ().showDance;
 				}
