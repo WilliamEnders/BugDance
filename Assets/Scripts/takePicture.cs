@@ -17,13 +17,15 @@ public class takePicture : MonoBehaviour {
 
 	public GameObject viewfinder;
 	public GameObject inv;
-	private int invNum;
+	public int invNum;
 	private cameraFlash flash;
 	private float fov;
 
 	public LayerMask layerMask;
 
 	private int timer;
+
+	public Transform[] inventory;
 
 
 	void Start(){
@@ -45,7 +47,17 @@ public class takePicture : MonoBehaviour {
 			timer--;
 		}
 
+		if(Input.GetKeyDown(KeyCode.Q)){
+			if(invNum > 0){
+			Destroy (inventory[invNum-1].gameObject);
+			inventory [invNum-1] = null;
+			invNum--;
+			}
+		}
+
 		if(pickUp && Input.GetKeyDown(KeyCode.E)){
+			
+			inventory [invNum] = temp;
 			Destroy (temp.GetComponent<Rigidbody>());
 			Destroy (temp.GetComponentInChildren<BoxCollider>());
 			temp.transform.parent = inv.transform.GetChild (invNum);
