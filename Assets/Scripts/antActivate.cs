@@ -16,20 +16,13 @@ public class antActivate : MonoBehaviour {
 
 	void OnTriggerStay(Collider other){
 
-		if (other.tag == "Player" && Input.GetKey (KeyCode.E)) {
+		if (other.tag == "Player" && Input.GetMouseButtonDown (0)) {
 			if (Physics.Raycast (cam.transform.position, cam.transform.forward, out hit, 100.0f)) {
 				if (hit.transform.CompareTag ("Ant")) {
 
 					move.canMove = false;
 
 					GetComponent<antTalking> ().isTalking = true;
-//					GameObject.FindObjectOfType<textBoxManager> ().isTalking = false;;
-//					GameObject.FindObjectOfType<beeTalking> ().isTalking = false;
-
-//					if (!GetComponent<antTalking> ().talked) {
-//						GetComponent<antTalking> ().currentLine = 0;
-//						GetComponent<antTalking> ().endAtLine = 1;
-//					}
 
 				}
 			}
