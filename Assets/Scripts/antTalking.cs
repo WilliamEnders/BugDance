@@ -13,8 +13,10 @@ public class antTalking : MonoBehaviour {
 	int currentLine;
 	int endAtLine;
 
-	public GameObject SingleButton;
-	public Text buttonText;
+	public GameObject DialogueButton;
+	public GameObject QuestButtons;
+	public Text leftButtonAnswer;
+	public Text rightButtonAnswer;
 	int clicked;
 
 	public bool isTalking;
@@ -65,15 +67,11 @@ public class antTalking : MonoBehaviour {
 					currentLine++;
 				}
 
-				if (currentLine == endAtLine) {
+				//if (currentLine == endAtLine) {
 
-					if (!talked) {
-						EnableButton ();
-					}
-
-				} else if (currentLine > endAtLine) {
-					isActive = false;
-				}
+					EnableButton ();
+					
+				//}
 
 			} else { 
 
@@ -95,7 +93,7 @@ public class antTalking : MonoBehaviour {
 			}
 		
 		//can move after finish talking
-		} else {
+		}else {
 			move.canMove = true;
 		}
 
@@ -114,10 +112,13 @@ public class antTalking : MonoBehaviour {
 	}
 
 	public void EnableButton(){
-
+		
+		//SingleButton.SetActive (true);
 	}
 
 	public void DisableButton(){
+		
+		//SingleButton.SetActive (false);
 
 	}
 

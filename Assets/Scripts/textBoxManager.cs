@@ -10,7 +10,11 @@ public class textBoxManager : MonoBehaviour {
 	public TextAsset textFiles;
 	public string[] textLines;
 
-	public GameObject buttons;
+//	public GameObject buttons;
+	public GameObject LeftButton;
+	public GameObject RightButton;
+	public GameObject QuestButton;
+
 	int leftClicked;
 	int rightClicked;
 	public Text leftButtonText;
@@ -24,6 +28,8 @@ public class textBoxManager : MonoBehaviour {
 	public bool talked;
 	public bool showDance;
 	public bool findLeave;
+	public bool foundLeave;
+	bool questComplete;
 
 	private playerControl move;
 
@@ -39,6 +45,7 @@ public class textBoxManager : MonoBehaviour {
 
 		showDance = false;
 		findLeave = false;
+		questComplete = false;
 
 		if (textFiles != null) {
 			textLines = (textFiles.text.Split('\n'));
@@ -76,9 +83,9 @@ public class textBoxManager : MonoBehaviour {
 				}
 
 				if (currentLine == endAtLine) {
-
-					EnableButton ();
 				
+					EnableButton ();
+
 				} else if (currentLine > endAtLine) {
 					isActive = false;
 				}
@@ -88,7 +95,7 @@ public class textBoxManager : MonoBehaviour {
 				if (showDance) {
 					theText.text = "Hold your camera!";
 
-					if (Input.GetKeyDown (KeyCode.Return)) {
+					if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
 						DisableTextBox ();
 					}
 				}
@@ -96,12 +103,28 @@ public class textBoxManager : MonoBehaviour {
 				if (findLeave) {
 					theText.text = "Did you find some great leaves?";
 
-					if (Input.GetKeyDown (KeyCode.Return)) {
-						DisableTextBox ();
+					if (foundLeave) {
+						EnableQuestButton ();
+					}else{
+						if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
+							DisableTextBox ();
+						}
 					}
 				}
 			}
 
+		}
+
+		if (questComplete) {
+			theText.text = "Yeah!! Let me dance for you! Hold your camera!";
+
+			showDance = true;
+
+			DisableQuestButton ();
+
+			if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
+				DisableTextBox ();
+			}		
 		}
 
 	}
@@ -125,26 +148,38 @@ public class textBoxManager : MonoBehaviour {
 
 	public void EnableButton(){
 
-		buttons.SetActive (true);
-		GameObject.Find ("LeftButton").SetActive (true);
-		GameObject.Find ("RightButton").SetActive (true);
+		//buttons.SetActive (true);
+//		GameObject.Find ("LeftButton").SetActive (true);
+//		GameObject.Find ("RightButton").SetActive (true);
+		LeftButton.SetActive(true);
+		RightButton.SetActive(true);
 
 	}
 
 	public void DisableButton(){
 		
-		buttons.SetActive (false);
+		//buttons.SetActive (false);
+		LeftButton.SetActive(false);
+		RightButton.SetActive(false);
 		isActive = false;
 	}
 
-	public void LoadScript(TextAsset theText){
-
-		if (theText != null) {
-			textLines = new string[1];
-			textLines = (theText.text.Split('\n'));
-		}
-
+	void EnableQuestButton(){
+		QuestButton.SetActive (true);
 	}
+
+	void DisableQuestButton(){
+		QuestButton.SetActive (false);
+	}
+
+//	public void LoadScript(TextAsset theText){
+//
+//		if (theText != null) {
+//			textLines = new string[1];
+//			textLines = (theText.text.Split('\n'));
+//		}
+//
+//	}
 
 	//Button functions
 	public void LoadNextDialogue1(){
@@ -163,13 +198,13 @@ public class textBoxManager : MonoBehaviour {
 			if (leftClicked == 2 && rightClicked == 0) {
 				theText.text = textLines [10];
 				leftButtonText.text = "Cool!";
-				GameObject.Find ("RightButton").SetActive (false);
+				RightButton.SetActive (false);
 			}
 			
 			if (leftClicked == 1 && rightClicked == 1) {
 				theText.text = textLines [14];
 				leftButtonText.text = "Ok.";
-				GameObject.Find ("RightButton").SetActive (false);
+				RightButton.SetActive (false);
 
 				findLeave = true;
 			}
@@ -212,7 +247,7 @@ public class textBoxManager : MonoBehaviour {
 				theText.text = textLines [14];
 				rightButtonText.text = "Ok.";
 
-				GameObject.Find ("LeftButton").SetActive (false);
+				LeftButton.SetActive (false);
 
 				findLeave = true;
 			}
@@ -229,6 +264,12 @@ public class textBoxManager : MonoBehaviour {
 			talked = true;
 
 		}
+	}
+
+	public void CompleteQuest(){
+		
+		questComplete = true;
+		findLeave = false;
 	}
 
 }
