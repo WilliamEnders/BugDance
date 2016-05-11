@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.Utility;
 
 public class takePicture : MonoBehaviour {
 	
@@ -38,6 +39,8 @@ public class takePicture : MonoBehaviour {
 		viewfinder.SetActive (false);
 		flash = GameObject.Find ("Flash").GetComponent<cameraFlash> ();
 		fov = 60;
+
+
 	}
 
 
@@ -68,12 +71,15 @@ public class takePicture : MonoBehaviour {
 		}
 
 		if(Input.GetMouseButtonDown (1) && !pickUp && cont.canMove){
+			GetComponent<binoTest> ().look = true;
 			cameraMode = true;
 			viewfinder.SetActive (true);
 			inv.SetActive (false);
 			fov = 60;
+
 		}
 		if(Input.GetMouseButtonUp (1)){
+			GetComponent<binoTest> ().look = false;
 			cameraMode = false;
 			viewfinder.SetActive (false);
 			inv.SetActive (true);
@@ -163,4 +169,5 @@ public class takePicture : MonoBehaviour {
 				grab = false;
 		}
 	}
+
 }
