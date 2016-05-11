@@ -3,7 +3,6 @@ using System.Collections;
 
 public class antMoving : MonoBehaviour {
 
-	GameObject Ant;
 	Animator animator;
 
 	float timer;
@@ -12,7 +11,6 @@ public class antMoving : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		Ant = GameObject.Find ("Ant");
 		animator = GetComponent<Animator>();
 
 		timer = 0;
@@ -23,44 +21,59 @@ public class antMoving : MonoBehaviour {
 	void Update () {
 		timer += Time.deltaTime;
 
-		//walk
-		if (timer >= timeGap) {
-			animator.SetBool ("walkToRight", true);
+		if (timer >= timeGap * 3) {
+			timer = 0;
 		}
 
-		if (timer >= timeGap*2) {
-			animator.SetBool ("walkToRight", false);
-			animator.SetBool ("walkToLeft", true);
-		}
+		ChangeAnim ();
+	}
 
-		//stop walk
-		if (timer >= timeGap*3) {
+	void ChangeAnim ()
+	{
+		
+		if (GetComponent<antTalking> ().findPartner && !GetComponent<antTalking> ().isTalking) {
+			//walk
+			if (timer >= timeGap) {
+				animator.SetBool ("walkToRight", true);
+			}
+
+			//change direction
+			if (timer >= timeGap * 2) {
+				animator.SetBool ("walkToRight", false);
+				animator.SetBool ("walkToLeft", true);
+			}
+
+			if (timer >= timeGap * 3) {
+				animator.SetBool ("walkToRight", true);
+				animator.SetBool ("walkToLeft", false);
+			}
+
+		} else if (GetComponent<antTalking> ().isTalking) {
+			//stop walk
 			animator.SetBool ("walkToRight", false);
 			animator.SetBool ("walkToLeft", false);
 		}
 
-		//dance
-		if (timer >= timeGap*4) {
-			animator.SetBool ("Dance1", true);
-		}
-		if (timer >= timeGap*5) {
-			animator.SetBool ("Dance1", false);
-			animator.SetBool ("Dance2", true);
-		}
-		if (timer >= timeGap*7) {
-			animator.SetBool ("Dance2", false);
-			animator.SetBool ("Dance3", true);
-		}
+		if (GetComponent<antTalking> ().showDance){
 
-		//stop dance
-		if (timer >= timeGap*9) {
-			animator.SetBool ("Dance3", false);
-		}
+			//dance
+			if (timer >= 0) {
+				animator.SetBool ("Dance3", false);
+				animator.SetBool ("Dance1", true);
+			}
+			if (timer >= timeGap * 2) {
+				animator.SetBool ("Dance1", false);
+				animator.SetBool ("Dance2", true);
+			}
+			if (timer >= timeGap * 3) {
+				animator.SetBool ("Dance2", false);
+				animator.SetBool ("Dance3", true);
+			}
 
-
-		if (timer >= 20) {
-			timer = 0;
+			//stop dance
+//			if (timer >= timeGap*9) {
+//				animator.SetBool ("Dance3", false);
+//			}
 		}
 	}
-
 }

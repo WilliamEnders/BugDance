@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
 
-public class activateText : MonoBehaviour {
+public class leaf : MonoBehaviour {
 
 	private playerControl move;
 	private RaycastHit hit;
@@ -18,22 +17,17 @@ public class activateText : MonoBehaviour {
 	}
 
 	void OnTriggerStay(Collider other){
-		
+
 		if (other.tag == "Player" && Input.GetKey(KeyCode.E)) {
 			if (Physics.Raycast (cam.transform.position, cam.transform.forward, out hit, 100.0f)) {
-				if (hit.transform.CompareTag ("Character")) {
-					
+				if (hit.transform.CompareTag ("QuestItem")) {
+
+					print (hit);
 					move.canMove = false;
 
-					GetComponent<textBoxManager> ().isActive = true;
-					GetComponent<textBoxManager> ().isTalking = true;
+					Destroy (gameObject);
+					GetComponent<textBoxManager> ().foundLeave = true;
 
-//					if (!GetComponent<textBoxManager> ().talked) {
-//						GetComponent<textBoxManager> ().currentLine = 0;
-//						GetComponent<textBoxManager> ().isActive = true;
-//						GetComponent<textBoxManager> ().isTalking = true;
-//					}
-//
 				}
 			}
 		}
