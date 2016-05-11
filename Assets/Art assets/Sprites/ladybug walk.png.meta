@@ -1,9 +1,19 @@
 fileFormatVersion: 2
 guid: 7a280252b9dea47e7816923dd7722bad
-timeCreated: 1462997296
+timeCreated: 1462997919
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: ladybug Idle-1
+    21300002: ladybug Idle-2
+    21300004: ladybug Talking-1
+    21300006: ladybug Talking-2
+    21300008: ladybug walk_1
+    21300010: ladybug walk_2
+    21300012: ladybug walk_3
+    21300014: ladybug walk_4
+    21300016: ladybug walk_5
+    21300018: ladybug walk_6
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -49,7 +59,145 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: ladybug Idle-1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 100
+        width: 48
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 18}
+        - {x: -24, y: -18}
+        - {x: 24, y: -18}
+        - {x: 24, y: 14}
+        - {x: 22, y: 18}
+    - name: ladybug Idle-2
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 100
+        width: 49
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18.5, y: 18.5}
+        - {x: -24.5, y: 8.5}
+        - {x: -24.5, y: -13.5}
+        - {x: -17.5, y: -18.5}
+        - {x: 16.5, y: -18.5}
+        - {x: 24.5, y: -13.5}
+        - {x: 24.5, y: 12.5}
+        - {x: 18.5, y: 18.5}
+    - name: ladybug Talking-1
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 101
+        width: 48
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 18}
+        - {x: -24, y: 9}
+        - {x: -24, y: -14}
+        - {x: -18, y: -18}
+        - {x: 24, y: -18}
+        - {x: 24, y: 12}
+        - {x: 16, y: 18}
+    - name: ladybug Talking-2
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 101
+        width: 49
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19.5, y: 18}
+        - {x: -24.5, y: 11}
+        - {x: -24.5, y: -16}
+        - {x: -23.5, y: -18}
+        - {x: 21.5, y: -18}
+        - {x: 24.5, y: -17}
+        - {x: 24.5, y: 16}
+        - {x: 17.5, y: 18}
+    - name: ladybug walk_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 49
+        width: 52
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: ladybug walk_2
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 49
+        width: 50
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: ladybug walk_3
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 49
+        width: 48
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: ladybug walk_4
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 0
+        width: 48
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: ladybug walk_5
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 0
+        width: 50
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: ladybug walk_6
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 0
+        width: 52
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
     outline: []
   spritePackingTag: 
   userData: 
