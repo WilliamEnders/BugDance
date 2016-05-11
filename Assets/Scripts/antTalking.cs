@@ -180,8 +180,8 @@ public class antTalking : MonoBehaviour {
 
 			dialogueText.text = "Sure! I'll try my best.";
 			DisableButton ();
-			currentLine = 8;
-//			currentLine = 9;
+//			currentLine = 8;
+			currentLine = 9;
 			endAtLine = 11;
 		}
 
