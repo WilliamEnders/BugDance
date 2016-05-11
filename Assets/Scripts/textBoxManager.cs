@@ -19,8 +19,7 @@ public class textBoxManager : MonoBehaviour {
 	public int currentLine;
 	public int endAtLine;
 
-	bool isActive;
-
+	public bool isActive;
 	public bool isTalking;
 	public bool talked;
 	public bool showDance;
@@ -55,7 +54,9 @@ public class textBoxManager : MonoBehaviour {
 
 	void Update(){
 		//allow player move while NOT talking
-		if (!isTalking) {
+		if (isTalking) {
+			move.canMove = false;
+		} else {
 			move.canMove = true;
 		}
 
@@ -79,6 +80,9 @@ public class textBoxManager : MonoBehaviour {
 				if (findLeave) {
 					theText.text = "Did you find some great leaves?";
 
+					if (Input.GetKeyDown (KeyCode.Return)) {
+						DisableTextBox ();
+					}
 				}
 			}
 				

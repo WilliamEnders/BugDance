@@ -11,17 +11,17 @@ Wanna see our dance? Let's see how well you know about us honey bees.
 //Q1
 Do we sleep?
 //Yes, you guys often sleep in your cells.
-//Nope, but you would rest in empty cells.
+//Nope, but you would rest in empty cells.  ==true
 
 //Q2
 According to human's timing. How long do we live in this season?
 //About 40 days.
-//Basically 4 - 9 months.
+//Basically 4 - 9 months. ==true
 
 //Q3
 Do you know which color we cann't see?
 //Ultraviolet!
-//Red!
+//Red!  ==true
 
 Seems like you need to learn a little more about us! Talk to other bees and they would help you out.
 Glad to see a ladybug like you knows a lot! Hey guys, dance time!
