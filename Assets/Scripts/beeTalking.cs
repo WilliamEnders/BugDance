@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class beeTalking : MonoBehaviour {
 
 	public GameObject textBox;
+	public GameObject dialog;
 	public Text theText;
 
 	public TextAsset textFiles;
@@ -28,7 +29,6 @@ public class beeTalking : MonoBehaviour {
 	public bool talked;
 	public bool showDance;
 	bool questionsComplete;
-	bool answered;
 
 	int correctAnswers;
 
@@ -49,7 +49,6 @@ public class beeTalking : MonoBehaviour {
 		showDance = false;
 		talked = false;
 		questionsComplete = true;
-		answered = false;
 
 		if (textFiles != null) {
 			textLines = (textFiles.text.Split('\n'));
@@ -164,11 +163,15 @@ public class beeTalking : MonoBehaviour {
 
 	void EnableTextBox(){
 		textBox.SetActive(true);
+		dialog.SetActive(true);
+
 	}
 
 	void DisableTextBox(){
 
 		textBox.SetActive(false);
+		dialog.SetActive(false);
+
 		isTalking = false;
 	}
 

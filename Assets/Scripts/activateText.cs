@@ -25,12 +25,15 @@ public class activateText : MonoBehaviour {
 					
 					move.canMove = false;
 
-					if (!GetComponent<textBoxManager> ().talked) {
-						GetComponent<textBoxManager> ().currentLine = 0;
-						GetComponent<textBoxManager> ().isActive = true;
-						GetComponent<textBoxManager> ().isTalking = true;
-					}
+					GetComponent<textBoxManager> ().isActive = true;
+					GetComponent<textBoxManager> ().isTalking = true;
 
+//					if (!GetComponent<textBoxManager> ().talked) {
+//						GetComponent<textBoxManager> ().currentLine = 0;
+//						GetComponent<textBoxManager> ().isActive = true;
+//						GetComponent<textBoxManager> ().isTalking = true;
+//					}
+//
 				}
 			}
 		}

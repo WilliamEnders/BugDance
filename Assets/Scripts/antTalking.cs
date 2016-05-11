@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class antTalking : MonoBehaviour {
 
 	public GameObject textBox;
+	public GameObject dialog;
 	public Text theText;
 
 	public TextAsset textFiles;
@@ -15,7 +16,7 @@ public class antTalking : MonoBehaviour {
 
 	public GameObject DialogueButton;
 	public GameObject QuestButton;
-	public Text buttonText;
+	public Text dialogueText;
 	int clicked;
 
 	public bool isTalking;
@@ -128,11 +129,15 @@ public class antTalking : MonoBehaviour {
 
 	void EnableTextBox(){
 		textBox.SetActive(true);
+		dialog.SetActive(true);
+
 	}
 
 	void DisableTextBox(){
 
 		textBox.SetActive(false);
+		dialog.SetActive(false);
+
 		isTalking = false;
 	}
 
@@ -160,22 +165,23 @@ public class antTalking : MonoBehaviour {
 		if (clicked == 1) {
 			
 			currentLine = 4;
-			buttonText.text = "Well... Can I take a picture of your happy dance?";
+			dialogueText.text = "Well... Can I take a picture of your happy dance?";
 		
 		}
 
 		if (clicked == 2) {
 
 			currentLine = 7;
-			buttonText.text = "Let's hear it.";
+			dialogueText.text = "Let's hear it.";
 
 		}
 
 		if (clicked == 3) {
 
-			buttonText.text = "Sure! I'll try my best.";
+			dialogueText.text = "Sure! I'll try my best.";
 			DisableButton ();
-			currentLine = 8;
+//			currentLine = 8;
+			currentLine = 9;
 			endAtLine = 11;
 		}
 

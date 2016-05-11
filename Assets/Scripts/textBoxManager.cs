@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class textBoxManager : MonoBehaviour {
 
 	public GameObject textBox;
+	public GameObject dialog;
+
 	public Text theText;
 
 	public TextAsset textFiles;
@@ -142,6 +144,8 @@ public class textBoxManager : MonoBehaviour {
 	public void EnableTextBox(){
 		
 		textBox.SetActive(true);
+		dialog.SetActive(true);
+
 		isActive = true;
 
 		isTalking = true;
@@ -151,6 +155,8 @@ public class textBoxManager : MonoBehaviour {
 	public void DisableTextBox(){
 		
 		textBox.SetActive(false);
+		dialog.SetActive(false);
+
 		isActive = false;
 
 		isTalking = false;
@@ -235,7 +241,7 @@ public class textBoxManager : MonoBehaviour {
 	public void LoadNextDialogue2(){
 
 		rightClicked++;
-		print ("leftClicked:" + leftClicked + ", rightClicked:" + rightClicked);
+//		print ("leftClicked:" + leftClicked + ", rightClicked:" + rightClicked);
 
 		if (isTalking) {
 			

@@ -22,13 +22,15 @@ public class antActivate : MonoBehaviour {
 
 					move.canMove = false;
 
-//					GetComponent<antTalking> ().isTalking = true;
+					GetComponent<antTalking> ().isTalking = true;
+					GameObject.FindObjectOfType<textBoxManager> ().isTalking = false;;
+					GameObject.FindObjectOfType<beeTalking> ().isTalking = false;
 
-					if (!GetComponent<antTalking> ().talked) {
-						GetComponent<antTalking> ().currentLine = 0;
-						GetComponent<antTalking> ().endAtLine = 1;
-						GetComponent<antTalking> ().isTalking = true;
-					}
+//					if (!GetComponent<antTalking> ().talked) {
+//						GetComponent<antTalking> ().currentLine = 0;
+//						GetComponent<antTalking> ().endAtLine = 1;
+//					}
+
 				}
 			}
 		}
