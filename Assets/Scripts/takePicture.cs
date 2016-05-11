@@ -102,7 +102,7 @@ public class takePicture : MonoBehaviour {
 			if (cameraMode && Input.GetMouseButtonDown (0) && timer == 0) {
 				grab = true;
 				flash.up = true;
-				timer = 30;
+				timer = 60;
 			}
 
 			if (Input.GetMouseButtonDown (0) && !cameraMode) {
@@ -145,7 +145,7 @@ public class takePicture : MonoBehaviour {
 
 	void OnPostRender() {
 		if (grab) {
-			
+			GetComponent<AudioSource> ().Play ();
 			GameObject pol = Instantiate (polaroid, transform.position + transform.forward, transform.rotation) as GameObject;
 			Texture2D tex2D = new Texture2D (Screen.width, Screen.height);
 			tex2D.ReadPixels (new Rect (0, 0, Screen.width, Screen.height), 0, 0, false);
