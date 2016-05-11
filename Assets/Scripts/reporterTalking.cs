@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class reporterTalking : MonoBehaviour {
 
@@ -51,13 +52,10 @@ public class reporterTalking : MonoBehaviour {
 
 			if (currentLine == endAtLine) {
 				DisableTextBox ();
+				isTalking = false;
 			}
 
 			ChangeAnim ();
-
-		}
-
-		if (!isTalking) {
 
 		}
 
@@ -67,7 +65,11 @@ public class reporterTalking : MonoBehaviour {
 			anim.SetBool ("isTalking", false);
 		}
 
-		print ("boss:" + bossTalking + " reporter:" + playerTalking);
+
+		//start Game
+		if (!isTalking) {
+			SceneManager.LoadScene(1);
+		}
 
 	}
 
@@ -86,7 +88,7 @@ public class reporterTalking : MonoBehaviour {
 	void ChangeAnim(){
 
 		//Talking
-		if(currentLine <= 9 && currentLine > 0){
+		if(currentLine <= 8 && currentLine > 0){
 
 			boss.SetActive (true);
 
