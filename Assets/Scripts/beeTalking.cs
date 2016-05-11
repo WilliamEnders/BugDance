@@ -10,7 +10,7 @@ public class beeTalking : MonoBehaviour {
 	public TextAsset textFiles;
 	public string[] textLines;
 
-	int currentLine;
+	public int currentLine;
 	int endAtLine;
 
 	public GameObject DialogueButton;
@@ -70,7 +70,7 @@ public class beeTalking : MonoBehaviour {
 			EnableTextBox ();
 
 			if (!talked) {
-
+				
 //				theText.text = textLines [currentLine];
 //
 //				if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {

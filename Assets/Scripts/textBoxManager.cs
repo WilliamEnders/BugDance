@@ -118,7 +118,7 @@ public class textBoxManager : MonoBehaviour {
 
 		}
 
-		if (questComplete) {
+		if (questComplete && !showDance) {
 			theText.text = "Yeah!! Let me dance for you! Hold your camera!";
 
 			showDance = true;

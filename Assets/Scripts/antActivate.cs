@@ -16,17 +16,22 @@ public class antActivate : MonoBehaviour {
 
 	void OnTriggerStay(Collider other){
 
-		if (other.tag == "Player" && Input.GetKey(KeyCode.E)) {
+		if (other.tag == "Player" && Input.GetKey (KeyCode.E)) {
 			if (Physics.Raycast (cam.transform.position, cam.transform.forward, out hit, 100.0f)) {
 				if (hit.transform.CompareTag ("Character")) {
 
 					move.canMove = false;
 
-					GetComponent<antTalking> ().isTalking = true;
+//					GetComponent<antTalking> ().isTalking = true;
 
+					if (!GetComponent<antTalking> ().talked) {
+						GetComponent<antTalking> ().currentLine = 0;
+						GetComponent<antTalking> ().endAtLine = 1;
+						GetComponent<antTalking> ().isTalking = true;
 					}
 				}
 			}
+		}
 			
 	}
 }

@@ -10,8 +10,8 @@ public class antTalking : MonoBehaviour {
 	public TextAsset textFiles;
 	public string[] textLines;
 
-	int currentLine;
-	int endAtLine;
+	public int currentLine;
+	public int endAtLine;
 
 	public GameObject DialogueButton;
 	public GameObject QuestButton;
@@ -119,8 +119,7 @@ public class antTalking : MonoBehaviour {
 				DisableTextBox ();
 			}		
 		}
-
-
+			
 		//cheat
 		if (Input.GetKey (KeyCode.X)) {
 			foundPartner = true;
@@ -196,5 +195,30 @@ public class antTalking : MonoBehaviour {
 		questComplete = true;
 		findPartner = false;
 	}
+
+//	public void Reset(){
+//		currentLine = 0;
+//		endAtLine = 1;
+//
+//		clicked = 0;
+//
+//		isTalking = false;
+//		showDance = false;
+//		findPartner = false;
+//
+//		if (textFiles != null) {
+//			textLines = (textFiles.text.Split('\n'));
+//		}
+//
+//		//		if (endAtLine == 0) {
+//		//			endAtLine = textLines.Length - 1;
+//		//		}
+//
+//		DisableTextBox();
+//		DisableButton();
+//
+//
+//	}
+		
 }
 
