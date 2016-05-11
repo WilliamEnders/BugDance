@@ -6,6 +6,9 @@ Oh, look, a cute ladybug!
 Nice to meet you! What are you doing here?
 
 //button twice
+I see.
+
+//button three times
 Wanna see our dance? Let's see how well you know about us honey bees.
 
 //Q1
@@ -15,8 +18,8 @@ Do we sleep?
 
 //Q2
 According to human's timing. How long do we live in this season?
-//About 40 days.
-//Basically 4 - 9 months. ==true
+//About 40 days.  ==true
+//Basically 4 - 9 months.
 
 //Q3
 Do you know which color we cann't see?
