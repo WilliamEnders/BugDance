@@ -161,7 +161,7 @@ public class antTalking : MonoBehaviour {
 	public void LoadNextDialogue(){
 		clicked++;
 
-		print (clicked);
+//		print (clicked);
 		if (clicked == 1) {
 			
 			currentLine = 4;
@@ -180,8 +180,8 @@ public class antTalking : MonoBehaviour {
 
 			dialogueText.text = "Sure! I'll try my best.";
 			DisableButton ();
-//			currentLine = 8;
-			currentLine = 9;
+			currentLine = 8;
+//			currentLine = 9;
 			endAtLine = 11;
 		}
 

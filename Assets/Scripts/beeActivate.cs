@@ -18,7 +18,7 @@ public class beeActivate : MonoBehaviour {
 
 		if (other.tag == "Player" && Input.GetKey(KeyCode.E)) {
 			if (Physics.Raycast (cam.transform.position, cam.transform.forward, out hit, 100.0f)) {
-				if (hit.transform.CompareTag ("Character")) {
+				if (hit.transform.CompareTag ("Bee")) {
 
 					move.canMove = false;
 

@@ -18,13 +18,13 @@ public class antActivate : MonoBehaviour {
 
 		if (other.tag == "Player" && Input.GetKey (KeyCode.E)) {
 			if (Physics.Raycast (cam.transform.position, cam.transform.forward, out hit, 100.0f)) {
-				if (hit.transform.CompareTag ("Character")) {
+				if (hit.transform.CompareTag ("Ant")) {
 
 					move.canMove = false;
 
 					GetComponent<antTalking> ().isTalking = true;
-					GameObject.FindObjectOfType<textBoxManager> ().isTalking = false;;
-					GameObject.FindObjectOfType<beeTalking> ().isTalking = false;
+//					GameObject.FindObjectOfType<textBoxManager> ().isTalking = false;;
+//					GameObject.FindObjectOfType<beeTalking> ().isTalking = false;
 
 //					if (!GetComponent<antTalking> ().talked) {
 //						GetComponent<antTalking> ().currentLine = 0;

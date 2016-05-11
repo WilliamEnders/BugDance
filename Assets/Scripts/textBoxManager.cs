@@ -76,24 +76,29 @@ public class textBoxManager : MonoBehaviour {
 		}
 
 		//begin dialog
-		if (isActive) {
+//		if (isActive) {
+		if (isTalking) {
 			
 			EnableTextBox ();
 		
 			if (!talked) {
 				theText.text = textLines [currentLine];
 
-				if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
-					currentLine++;
+				if (currentLine < endAtLine) {
+					if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
+						currentLine++;
+					}
 				}
 
 				if (currentLine == endAtLine) {
 				
 					EnableButton ();
+//					isActive = false;
 
-				} else if (currentLine > endAtLine) {
-					isActive = false;
-				}
+				} 
+//				else if (currentLine > endAtLine) {
+//					isActive = false;
+//				}
 					
 			} else { 
 
@@ -141,14 +146,16 @@ public class textBoxManager : MonoBehaviour {
 
 	}
 
+
+
 	public void EnableTextBox(){
 		
 		textBox.SetActive(true);
 		dialog.SetActive(true);
 
-		isActive = true;
-
-		isTalking = true;
+//		isActive = true;
+//
+//		isTalking = true;
 
 	}
 
@@ -157,7 +164,7 @@ public class textBoxManager : MonoBehaviour {
 		textBox.SetActive(false);
 		dialog.SetActive(false);
 
-		isActive = false;
+//		isActive = false;
 
 		isTalking = false;
 	}
@@ -165,8 +172,6 @@ public class textBoxManager : MonoBehaviour {
 	public void EnableButton(){
 
 		//buttons.SetActive (true);
-//		GameObject.Find ("LeftButton").SetActive (true);
-//		GameObject.Find ("RightButton").SetActive (true);
 		LeftButton.SetActive(true);
 		RightButton.SetActive(true);
 
@@ -177,7 +182,7 @@ public class textBoxManager : MonoBehaviour {
 		//buttons.SetActive (false);
 		LeftButton.SetActive(false);
 		RightButton.SetActive(false);
-		isActive = false;
+//		isActive = false;
 	}
 
 	void EnableQuestButton(){
@@ -206,19 +211,24 @@ public class textBoxManager : MonoBehaviour {
 		if (isTalking) {
 			
 			if (leftClicked == 1) {
-				theText.text = textLines [5];
+				//theText.text = textLines [5];
+				currentLine = 5;
 				leftButtonText.text = "Can I take a picture of your happy dance?";
 				rightButtonText.text = "I'd love to see you dancing!";
 			}
 
 			if (leftClicked == 2 && rightClicked == 0) {
-				theText.text = textLines [10];
+//				theText.text = textLines [10];
+				currentLine = 10;
+
 				leftButtonText.text = "Cool!";
 				RightButton.SetActive (false);
 			}
 			
 			if (leftClicked == 1 && rightClicked == 1) {
-				theText.text = textLines [14];
+//				theText.text = textLines [14];
+				currentLine = 14;
+
 				leftButtonText.text = "Ok.";
 				RightButton.SetActive (false);
 
