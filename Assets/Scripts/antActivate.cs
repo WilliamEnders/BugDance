@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
 
-public class beeActivate : MonoBehaviour {
+public class antActivate : MonoBehaviour {
 
 	private playerControl move;
 	private RaycastHit hit;
@@ -25,9 +24,9 @@ public class beeActivate : MonoBehaviour {
 
 					GetComponent<antTalking> ().isTalking = true;
 
+					}
 				}
 			}
-		}
-
+			
 	}
 }

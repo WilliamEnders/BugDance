@@ -92,7 +92,7 @@ public class textBoxManager : MonoBehaviour {
 				} else if (currentLine > endAtLine) {
 					isActive = false;
 				}
-
+					
 			} else { 
 
 				if (showDance) {

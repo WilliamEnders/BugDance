@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
 
-public class antActivate : MonoBehaviour {
+public class beeActivate : MonoBehaviour {
 
 	private playerControl move;
 	private RaycastHit hit;
@@ -23,12 +22,11 @@ public class antActivate : MonoBehaviour {
 
 					move.canMove = false;
 
-					GetComponent<antTalking> ().isTalking = true;
-//					print ("ant can talk");
+					GetComponent<beeTalking> ().isTalking = true;
 
-					}
 				}
 			}
-			
+		}
+
 	}
 }

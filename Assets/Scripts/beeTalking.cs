@@ -27,7 +27,8 @@ public class beeTalking : MonoBehaviour {
 	public bool isTalking;
 	public bool talked;
 	public bool showDance;
-	bool questComplete;
+	bool questionsComplete;
+	bool answered;
 
 	int correctAnswers;
 
@@ -46,7 +47,9 @@ public class beeTalking : MonoBehaviour {
 
 		isTalking = false;
 		showDance = false;
-		questComplete = false;
+		talked = false;
+		questionsComplete = true;
+		answered = false;
 
 		if (textFiles != null) {
 			textLines = (textFiles.text.Split('\n'));
@@ -68,19 +71,33 @@ public class beeTalking : MonoBehaviour {
 
 			if (!talked) {
 
+//				theText.text = textLines [currentLine];
+//
+//				if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
+//					currentLine++;
+//				}
+//
+//				if (currentLine == endAtLine) {
+//
+//					EnableButton ();
+//
+//				} else if (currentLine > endAtLine) {
+//				}
+
 				theText.text = textLines [currentLine];
 
 				if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
-					currentLine++;
+
+					if (currentLine >= endAtLine) {
+
+						EnableButton ();
+
+					} else {
+						currentLine++;
+					}
+
 				}
 
-				if (currentLine == endAtLine) {
-
-					EnableButton ();
-
-				} else if (currentLine > endAtLine) {
-					isTalking = false;
-				}
 
 			} else {
 				
@@ -90,32 +107,59 @@ public class beeTalking : MonoBehaviour {
 					if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
 						DisableTextBox ();
 					}
-				}
 
-				if (correctAnswers == 0) {
+				} else {
+					theText.text = textLines [currentLine];
+
+					if (!questionsComplete) {
 					
-					currentLine = 14;
-					EnableQuestButton ();
+						EnableQuestButton ();
+
+//					if (correctAnswers == 0 && answered == false) {
+						if (correctAnswers == 0) {
+							
+							currentLine = 14;
+						}
+
+						theText.text = textLines [currentLine];
+
+					} else {
+					
+						if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
+							DisableTextBox ();
+						}
+					}
 				}
+					
 			}
 
 		//can move after finish talking
-		} else if (!GameObject.FindObjectOfType<textBoxManager>().isTalking && !GameObject.FindObjectOfType<beeTalking>().isTalking){
+		} else if (!GameObject.FindObjectOfType<textBoxManager>().isTalking && !GameObject.FindObjectOfType<antTalking>().isTalking){
 			move.canMove = true;
 		}
 			
 		if (correctAnswers == 3) {
 			
 			currentLine = 29;
+			DisableQuestButton ();
 
 			if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
 				DisableTextBox ();
 				DisableButton ();
-
 				showDance = true;
 			}
 		}
 			
+
+		if (questionsComplete) {
+			
+			theText.text = textLines [28];
+
+			leftText.text = "Of course, you guys often sleep in your cells.";
+			rightText.text = "Nope, but you would rest in empty cells.";
+
+			Invoke ("StartQuestionsAgain", 2);
+		}
 	}
 
 	void EnableTextBox(){
@@ -176,38 +220,55 @@ public class beeTalking : MonoBehaviour {
 	}
 
 	public void Answer1(){
-		
-//		leftClicked++;
+
 		//wrong
 		if (currentLine == 14 || currentLine == 24) {
 			correctAnswers = 0;
 			currentLine = 28;
 			DisableQuestButton ();
+			questionsComplete = true;
+
 		}
 		//correct
 		if (currentLine == 19) {
 			correctAnswers ++;
 			currentLine = 24;
+
+			leftText.text = "Ultraviolet!";
+			rightText.text = "Red!";
 		}
 			
 	}
 
 	public void Answer2(){
+		
 		//wrong
 		if (currentLine == 19) {
 			correctAnswers = 0;
 			currentLine = 28;
 			DisableQuestButton ();
+
+			questionsComplete = true;
+
 		}
 		//correct
 		if (currentLine == 14) {
 			correctAnswers ++;
 			currentLine = 19;
+
+			leftText.text = "About 40 days.";
+			rightText.text = "Approximately 4 - 9 months.";
 		}
 
 		if (currentLine == 24) {
 			correctAnswers ++;
 		}
 
+//		answered = true;
+
+	}
+
+	void StartQuestionsAgain(){
+		questionsComplete = false;
 	}
 }

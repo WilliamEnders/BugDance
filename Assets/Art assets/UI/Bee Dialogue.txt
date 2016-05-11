@@ -19,10 +19,10 @@ Do we sleep?
 //Q2
 According to human's timing. How long do we live in this season?
 //About 40 days.  ==true
-//Basically 4 - 9 months.
+//Approximately 4 - 9 months.
 
 //Q3
-Do you know which color we cann't see?
+Do you know which color we cannot see?
 //Ultraviolet!
 //Red!  ==true
 
