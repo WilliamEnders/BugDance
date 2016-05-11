@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class textBoxManager : MonoBehaviour {
+public class antTalking : MonoBehaviour {
 
 	public GameObject textBox;
 	public Text theText;
@@ -24,7 +24,7 @@ public class textBoxManager : MonoBehaviour {
 	public bool isTalking;
 	public bool talked;
 	public bool showDance;
-	public bool findLeave;
+	public bool findPartner;
 
 	private playerControl move;
 
@@ -39,7 +39,7 @@ public class textBoxManager : MonoBehaviour {
 		isTalking = false;
 
 		showDance = false;
-		findLeave = false;
+		findPartner = false;
 
 		if (textFiles != null) {
 			textLines = (textFiles.text.Split('\n'));
@@ -61,9 +61,9 @@ public class textBoxManager : MonoBehaviour {
 
 		//begin dialog
 		if (isActive) {
-			
+
 			EnableTextBox ();
-		
+
 			if (!talked) {
 				theText.text = textLines [currentLine];
 			} else { 
@@ -76,12 +76,13 @@ public class textBoxManager : MonoBehaviour {
 					}
 				}
 
-				if (findLeave) {
-					theText.text = "Did you find some great leaves?";
+				if (findPartner) {
+					
+					theText.text = "Did you find me a cute little guy?";
 
 				}
 			}
-				
+
 
 			if ((Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) && !talked) {
 				currentLine++;
@@ -101,7 +102,7 @@ public class textBoxManager : MonoBehaviour {
 	}
 
 	public void EnableTextBox(){
-		
+
 		textBox.SetActive(true);
 		isActive = true;
 
@@ -110,7 +111,7 @@ public class textBoxManager : MonoBehaviour {
 	}
 
 	public void DisableTextBox(){
-		
+
 		textBox.SetActive(false);
 		isTalking = false;
 	}
@@ -124,7 +125,7 @@ public class textBoxManager : MonoBehaviour {
 	}
 
 	public void DisableButton(){
-		
+
 		buttons.SetActive (false);
 		isActive = false;
 	}
@@ -142,10 +143,10 @@ public class textBoxManager : MonoBehaviour {
 	public void LoadNextDialogue1(){
 
 		leftClicked++;
-//		print ("leftClicked:" + leftClicked + ", rightClicked:" + rightClicked);
+		//print ("leftClicked:" + leftClicked + ", rightClicked:" + rightClicked);
 
 		if (isTalking) {
-			
+
 			if (leftClicked == 1) {
 				theText.text = textLines [5];
 				leftButtonText.text = "Can I take a picture of your happy dance?";
@@ -157,13 +158,13 @@ public class textBoxManager : MonoBehaviour {
 				leftButtonText.text = "Cool!";
 				GameObject.Find ("RightButton").SetActive (false);
 			}
-			
+
 			if (leftClicked == 1 && rightClicked == 1) {
 				theText.text = textLines [14];
 				leftButtonText.text = "Ok.";
 				GameObject.Find ("RightButton").SetActive (false);
 
-				findLeave = true;
+				findPartner = true;
 			}
 
 		}
@@ -173,6 +174,7 @@ public class textBoxManager : MonoBehaviour {
 			DisableTextBox ();
 
 			showDance = true;
+			//print ("can dance now");
 			isTalking = false;
 
 			talked = true;
@@ -185,20 +187,12 @@ public class textBoxManager : MonoBehaviour {
 		print ("leftClicked:" + leftClicked + ", rightClicked:" + rightClicked);
 
 		if (isTalking) {
-			
+
 			if (rightClicked == 1) {
 				theText.text = textLines [7];
 				leftButtonText.text = "I'm a reporter, can you dance now?";
 				rightButtonText.text = "Can I take a picture of your happy dance?";
 			}
-			/*
-			if (leftClicked == 0 && rightClicked == 2) {
-				theText.text = textLines [12];
-				rightButtonText.text = "Cool!";
-				GameObject.Find ("LeftButton").SetActive (false);
-
-			}
-			*/
 
 			if (leftClicked == 1 && rightClicked == 1 || leftClicked == 0 && rightClicked == 2) {
 				theText.text = textLines [14];
@@ -206,13 +200,13 @@ public class textBoxManager : MonoBehaviour {
 
 				GameObject.Find ("LeftButton").SetActive (false);
 
-				findLeave = true;
+				findPartner = true;
 			}
 
 		}
 
 		if (rightClicked == 3 || (leftClicked == 1 && rightClicked == 2)) {
-			
+
 			DisableButton ();
 			DisableTextBox ();
 

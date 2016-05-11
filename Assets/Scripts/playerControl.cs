@@ -6,17 +6,17 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class playerControl : MonoBehaviour {
 
 
-	public TextAsset textFiles;
-	public string[] textLines;
+//	public TextAsset textFiles;
+//	public string[] textLines;
 	private FirstPersonController fps;
 	public bool canMove;
 	public GameObject retical;
 
 	void Start(){
 		fps = GameObject.Find ("FPSController").GetComponent<FirstPersonController> ();
-		if (textFiles != null) {
-			textLines = (textFiles.text.Split());
-		}
+//		if (textFiles != null) {
+//			textLines = (textFiles.text.Split());
+//		}
 
 		canMove = true;
 	}
