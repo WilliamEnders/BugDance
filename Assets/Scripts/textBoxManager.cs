@@ -44,6 +44,8 @@ public class textBoxManager : MonoBehaviour {
 			textLines = (textFiles.text.Split('\n'));
 		}
 
+		currentLine = 0;
+
 		if (endAtLine == 0) {
 			endAtLine = textLines.Length - 1;
 		}
@@ -53,6 +55,7 @@ public class textBoxManager : MonoBehaviour {
 	}
 
 	void Update(){
+		
 		//allow player move while NOT talking
 		if (isTalking) {
 			move.canMove = false;
@@ -67,6 +70,19 @@ public class textBoxManager : MonoBehaviour {
 		
 			if (!talked) {
 				theText.text = textLines [currentLine];
+
+				if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
+					currentLine++;
+				}
+
+				if (currentLine == endAtLine) {
+
+					EnableButton ();
+				
+				} else if (currentLine > endAtLine) {
+					isActive = false;
+				}
+
 			} else { 
 
 				if (showDance) {
@@ -85,21 +101,7 @@ public class textBoxManager : MonoBehaviour {
 					}
 				}
 			}
-				
 
-			if ((Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) && !talked) {
-				currentLine++;
-			}
-
-			if (currentLine == endAtLine) {
-
-				if (!talked) {
-					EnableButton ();
-				}
-
-			} else if (currentLine > endAtLine) {
-				isActive = false;
-			}
 		}
 
 	}
@@ -116,6 +118,8 @@ public class textBoxManager : MonoBehaviour {
 	public void DisableTextBox(){
 		
 		textBox.SetActive(false);
+		isActive = false;
+
 		isTalking = false;
 	}
 

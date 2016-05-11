@@ -24,6 +24,8 @@ public class antMoving : MonoBehaviour {
 		if (timer >= timeGap * 3) {
 			timer = 0;
 		}
+
+		ChangeAnim ();
 	}
 
 	void ChangeAnim ()

@@ -61,6 +61,20 @@ public class antTalking : MonoBehaviour {
 				
 				theText.text = textLines [currentLine];
 
+				if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
+					currentLine++;
+				}
+
+				if (currentLine == endAtLine) {
+
+					if (!talked) {
+						EnableButton ();
+					}
+
+				} else if (currentLine > endAtLine) {
+					isActive = false;
+				}
+
 			} else { 
 
 				if (showDance) {
@@ -72,28 +86,15 @@ public class antTalking : MonoBehaviour {
 				}
 
 				if (findPartner) {
-					theText.text = "Did you find me a cute little guy?";
+					theText.text = "Did you find some great leaves?";
+
 					if (Input.GetKeyDown (KeyCode.Return)) {
 						DisableTextBox ();
 					}
 				}
 			}
-
-
-			if ((Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) && !talked) {
-				currentLine++;
-			}
-
-			if (currentLine == endAtLine) {
-
-				if (!talked) {
-					EnableButton ();
-				}
-
-			} else if (currentLine > endAtLine) {
-			}
 		
-		
+		//can move after finish talking
 		} else {
 			move.canMove = true;
 		}
