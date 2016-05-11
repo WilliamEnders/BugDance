@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class reporterTalking : MonoBehaviour {
 
@@ -22,7 +21,11 @@ public class reporterTalking : MonoBehaviour {
 
 	Animator anim;
 
+	private fadeToBlack fade;
+
 	void Start(){
+
+		fade = GameObject.Find ("Fade").GetComponent<fadeToBlack> ();
 
 		isTalking = true;
 
@@ -68,7 +71,11 @@ public class reporterTalking : MonoBehaviour {
 
 		//start Game
 		if (!isTalking) {
-			SceneManager.LoadScene(1);
+			//SceneManager.LoadScene(1);
+			if(!fade.fadeOut){
+				fade.FadeOut();
+			}
+			//isTalking = true;
 		}
 
 	}

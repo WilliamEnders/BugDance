@@ -146,11 +146,10 @@ public class takePicture : MonoBehaviour {
 	void OnPostRender() {
 		if (grab) {
 			
-				GameObject pol = Instantiate (polaroid, transform.position + transform.forward, transform.rotation) as GameObject;
-
-				Texture2D tex2D = new Texture2D (Screen.width, Screen.height);
-				tex2D.ReadPixels (new Rect (0, 0, Screen.width, Screen.height), 0, 0, false);
-				tex2D.Apply ();
+			GameObject pol = Instantiate (polaroid, transform.position + transform.forward, transform.rotation) as GameObject;
+			Texture2D tex2D = new Texture2D (Screen.width, Screen.height);
+			tex2D.ReadPixels (new Rect (0, 0, Screen.width, Screen.height), 0, 0, false);
+			tex2D.Apply ();
 			pol.GetComponent<Renderer> ().material.mainTexture = tex2D;
 			pol.GetComponent<Renderer> ().material.SetTextureScale ("_MainTex", new Vector2(1/Camera.main.aspect,1f));
 			pol.GetComponent<Renderer> ().material.SetTextureOffset ("_MainTex", new Vector2((1-(1/Camera.main.aspect))*.5f,0f));
@@ -166,7 +165,9 @@ public class takePicture : MonoBehaviour {
 			pol.transform.parent = transform;
 			temp = pol.transform;
 			pickUp = true;
-				grab = false;
+			grab = false;
+
+			pol = null;
 		}
 	}
 

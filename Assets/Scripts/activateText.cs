@@ -20,6 +20,7 @@ public class activateText : MonoBehaviour {
 
 		if(other.CompareTag("PickUp") && other.name == "Leaf"){
 			GetComponent<textBoxManager> ().foundLeave = true;
+			Destroy (other.gameObject);
 		}
 		
 		if (other.tag == "Player" && Input.GetKey(KeyCode.E)) {
