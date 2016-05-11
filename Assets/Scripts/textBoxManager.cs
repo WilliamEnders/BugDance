@@ -65,8 +65,11 @@ public class textBoxManager : MonoBehaviour {
 		
 		//allow player move while NOT talking
 		if (isTalking) {
+			
 			move.canMove = false;
-		} else {
+
+		} else if (!GameObject.FindObjectOfType<antTalking>().isTalking && !GameObject.FindObjectOfType<beeTalking>().isTalking){
+
 			move.canMove = true;
 		}
 
@@ -124,7 +127,14 @@ public class textBoxManager : MonoBehaviour {
 
 			if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
 				DisableTextBox ();
-			}		
+				theText.text = "Hold your camera!";
+
+			}
+		}
+
+		//cheat
+		if (Input.GetKey (KeyCode.Z)) {
+			foundLeave = true;
 		}
 
 	}
