@@ -6,7 +6,6 @@ public class activateText : MonoBehaviour {
 
 	private playerControl move;
 	private RaycastHit hit;
-
 	private Transform cam;
 
 	// Use this for initialization
@@ -18,6 +17,10 @@ public class activateText : MonoBehaviour {
 	}
 
 	void OnTriggerStay(Collider other){
+
+		if(other.CompareTag("PickUp") && other.name == "Leaf"){
+			GetComponent<textBoxManager> ().foundLeave = true;
+		}
 		
 		if (other.tag == "Player" && Input.GetKey(KeyCode.E)) {
 			if (Physics.Raycast (cam.transform.position, cam.transform.forward, out hit, 100.0f)) {
