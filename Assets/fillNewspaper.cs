@@ -30,6 +30,8 @@ public class fillNewspaper : MonoBehaviour {
 					txt.text = "We're not really sure what this picture is of, but we still love it!";
 				}else if(info.subject == "Stump"){
 					txt.text = "This picture is mostly stump, but that doesn't mean it isn't newsworthy!";
+				}else if(info.subject == "Tree"){
+					txt.text = "The majestic tree that we call our home! Aren't we all so lucky?";
 				}else{
 					txt.text = clip1 [i] + " " + info.subject + " " + clip2[i];
 					if(info.isDancing){
