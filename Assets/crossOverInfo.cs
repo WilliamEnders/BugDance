@@ -13,7 +13,7 @@ public class crossOverInfo : MonoBehaviour {
 	}
 
 	void Update(){
-		if (SceneManager.GetActiveScene ().buildIndex == 2) {
+		if (SceneManager.GetActiveScene ().buildIndex == 3) {
 			for(int i = 0; i<inv.Length;i++){
 				GameObject.Find("Newspaper").GetComponent<fillNewspaper>().inv[i] = inv[i];
 			}
