@@ -37,7 +37,7 @@ public class reporterTalking : MonoBehaviour {
 			endAtLine = textLines.Length - 1;
 		}
 
-//		anim = GetComponent<Animator> ();
+		anim = GetComponent<Animator> ();
 
 	}
 
@@ -62,11 +62,11 @@ public class reporterTalking : MonoBehaviour {
 
 		}
 
-//		if (playerTalking) {
-//			anim.SetBool ("talking", true);
-//		} else {
-//			anim.SetBool ("talking", false);
-//		}
+		if (playerTalking) {
+			anim.SetBool ("talking", true);
+		} else {
+			anim.SetBool ("talking", false);
+		}
 
 
 		//start Game
