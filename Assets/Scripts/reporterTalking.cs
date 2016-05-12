@@ -19,7 +19,7 @@ public class reporterTalking : MonoBehaviour {
 	public bool bossTalking;
 	public bool playerTalking;
 
-	Animator anim;
+	public Animator anim;
 
 	private fadeToBlack fade;
 
@@ -37,7 +37,7 @@ public class reporterTalking : MonoBehaviour {
 			endAtLine = textLines.Length - 1;
 		}
 
-		anim = GetComponent<Animator> ();
+//		anim = GetComponent<Animator> ();
 
 	}
 
@@ -62,11 +62,11 @@ public class reporterTalking : MonoBehaviour {
 
 		}
 
-		if (playerTalking) {
-			anim.SetBool ("isTalking", true);
-		} else {
-			anim.SetBool ("isTalking", false);
-		}
+//		if (playerTalking) {
+//			anim.SetBool ("talking", true);
+//		} else {
+//			anim.SetBool ("talking", false);
+//		}
 
 
 		//start Game
