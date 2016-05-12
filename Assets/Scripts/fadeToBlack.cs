@@ -24,7 +24,7 @@ public class fadeToBlack : MonoBehaviour {
 		if(fadeIn){
 			AudioListener.volume = 1-a;
 			fade.color = new Color (0,0,0,a);
-			a -= 0.01f;
+			a -= 0.02f;
 			if(a <= 0){
 				a = 0;
 				fadeIn = false;
@@ -33,9 +33,9 @@ public class fadeToBlack : MonoBehaviour {
 		if(fadeOut){
 			AudioListener.volume = 1-a;
 			fade.color = new Color (0,0,0,a);
-			a += 0.01f;
+			a += 0.02f;
 			if(a >= 1){
-				SceneManager.LoadScene(1);
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 			}
 		}
 	}
