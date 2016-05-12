@@ -27,7 +27,7 @@ public class activateText : MonoBehaviour {
 
 	void OnTriggerStay(Collider other){
 		
-		if (other.tag == "Player" && Input.GetKey(KeyCode.E)) {
+		if (other.tag == "Player" && Input.GetMouseButtonDown (0)) {
 			if (Physics.Raycast (cam.transform.position, cam.transform.forward, out hit, 100.0f)) {
 				if (hit.transform.CompareTag ("Character")) {
 					
