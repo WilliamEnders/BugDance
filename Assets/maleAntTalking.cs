@@ -53,7 +53,7 @@ public class maleAntTalking : MonoBehaviour {
 		}
 
 		if (talked) {
-			transform.position = GameObject.FindObjectOfType<antTalking> ().girlPosition.position - new Vector3(2, 0, 0);
+			transform.position = GameObject.FindObjectOfType<antTalking> ().girlPosition.position - new Vector3(1, 0, 0);
 		}
 
 	}

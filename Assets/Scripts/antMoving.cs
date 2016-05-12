@@ -30,31 +30,35 @@ public class antMoving : MonoBehaviour {
 
 	void ChangeAnim ()
 	{
-		
-		if (GetComponent<antTalking> ().findPartner && !GetComponent<antTalking> ().isTalking) {
-			//walk
-			if (timer >= timeGap) {
-				animator.SetBool ("walkToRight", true);
-			}
+		if (GetComponent<antTalking> () != null) {
+			if (GetComponent<antTalking> ().findPartner && !GetComponent<antTalking> ().isTalking) {
+				//walk
+				if (timer >= timeGap) {
+					animator.SetBool ("walkToRight", true);
+				}
 
-			//change direction
-			if (timer >= timeGap * 2) {
+				//change direction
+				if (timer >= timeGap * 2) {
+					animator.SetBool ("walkToRight", false);
+					animator.SetBool ("walkToLeft", true);
+				}
+
+				if (timer >= timeGap * 3) {
+					animator.SetBool ("walkToRight", true);
+					animator.SetBool ("walkToLeft", false);
+				}
+
+			} else if (GetComponent<antTalking> ().isTalking) {
+				//stop walk
 				animator.SetBool ("walkToRight", false);
-				animator.SetBool ("walkToLeft", true);
-			}
-
-			if (timer >= timeGap * 3) {
-				animator.SetBool ("walkToRight", true);
 				animator.SetBool ("walkToLeft", false);
 			}
-
-		} else if (GetComponent<antTalking> ().isTalking) {
-			//stop walk
-			animator.SetBool ("walkToRight", false);
-			animator.SetBool ("walkToLeft", false);
 		}
 
-		if (GetComponent<antTalking> ().showDance){
+		if (GameObject.FindObjectOfType<antTalking> ().showDance){
+
+			animator.SetBool ("walkToRight", false);
+			animator.SetBool ("walkToLeft", false);
 
 			//dance
 			if (timer >= 0) {
@@ -69,11 +73,7 @@ public class antMoving : MonoBehaviour {
 				animator.SetBool ("Dance2", false);
 				animator.SetBool ("Dance3", true);
 			}
-
-			//stop dance
-//			if (timer >= timeGap*9) {
-//				animator.SetBool ("Dance3", false);
-//			}
+				
 		}
 	}
 }
