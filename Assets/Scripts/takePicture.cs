@@ -58,7 +58,7 @@ public class takePicture : MonoBehaviour {
 			}
 		}
 
-		if(pickUp && Input.GetKeyDown(KeyCode.E)){
+		if(pickUp && Input.GetMouseButtonDown (1)){
 			
 			inventory [invNum] = temp;
 			Destroy (temp.GetComponent<Rigidbody>());

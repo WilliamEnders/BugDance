@@ -26,10 +26,16 @@ public class playerControl : MonoBehaviour {
 		if (canMove) {
 			GetComponent<FirstPersonController> ().m_WalkSpeed = 5;
 			fps.m_MouseLook.SetCursorLock (true);
+			fps.m_MouseLook.XSensitivity = 2;
+			fps.m_MouseLook.YSensitivity = 2;
+			//GetComponentInChildren<binoTest> ().look = false;
 			retical.SetActive (true);
 		} else {
 			GetComponent<FirstPersonController> ().m_WalkSpeed = 0;
 			fps.m_MouseLook.SetCursorLock (false);
+			fps.m_MouseLook.XSensitivity = 0;
+			fps.m_MouseLook.YSensitivity = 0;
+			GetComponentInChildren<binoTest> ().look = true;
 			retical.SetActive (false);
 		}
 
