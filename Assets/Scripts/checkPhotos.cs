@@ -8,10 +8,10 @@ public class checkPhotos : MonoBehaviour {
 	public Transform[] imageFrames;
 	public GameObject newspaper;
 	
-
+	private Transform cam;
 	// Use this for initialization
 	void Start () {
-	
+		cam = GameObject.Find ("FirstPersonCharacter").transform;
 	}
 	
 	// Update is called once per frame
@@ -23,11 +23,13 @@ public class checkPhotos : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter(Collider info){
+	void OnTriggerStay(Collider info){
+		if(info.tag == "Player" && Input.GetMouseButtonDown (0)&& !cam.GetComponent<takePicture>().cameraMode){
 		newspaper.SetActive (true);
-		if(info.CompareTag("Player")){
-			for(int i=0; i < info.GetComponentInChildren<takePicture>().invNum; i++){
-				inv[i] = info.GetComponentInChildren<takePicture> ().inventory [i];
+			if(info.CompareTag("Player")){
+				for(int i=0; i < info.GetComponentInChildren<takePicture>().invNum; i++){
+					inv[i] = info.GetComponentInChildren<takePicture> ().inventory [i];
+				}
 			}
 		}
 	}
