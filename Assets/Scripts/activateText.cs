@@ -41,7 +41,7 @@ public class activateText : MonoBehaviour {
 			if (other.tag == "Player" && Input.GetMouseButtonDown (0) && !cam.GetComponent<takePicture> ().cameraMode) {
 				if (hit.transform.CompareTag ("Character")) {
 					mouse.SetActive (false);
-					mouse.GetComponent<Animator> ().SetBool ("canTalk", false);
+					mouse.GetComponent<Animator> ().SetBool ("canTalk", true);
 					move.canMove = false;
 
 					GetComponent<textBoxManager> ().isActive = true;
