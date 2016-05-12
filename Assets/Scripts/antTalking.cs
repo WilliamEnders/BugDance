@@ -26,6 +26,8 @@ public class antTalking : MonoBehaviour {
 	public bool foundPartner;
 	bool questComplete;
 
+	public Transform girlPosition;
+
 	private playerControl move;
 
 	void Start(){
@@ -45,12 +47,10 @@ public class antTalking : MonoBehaviour {
 			textLines = (textFiles.text.Split('\n'));
 		}
 
-//		if (endAtLine == 0) {
-//			endAtLine = textLines.Length - 1;
-//		}
-
 		DisableTextBox();
 		DisableButton();
+
+		girlPosition = transform;
 	}
 
 	void Update(){
@@ -200,6 +200,12 @@ public class antTalking : MonoBehaviour {
 
 		questComplete = true;
 		findPartner = false;
+	}
+
+	void OnTriggerEnter(Collider other){
+		if (other.tag == "Ant") {
+			showDance = true;
+		}
 	}
 }
 

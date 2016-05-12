@@ -1,0 +1,523 @@
+fileFormatVersion: 2
+guid: 15885015d6e8a4b2c8d23375b94d35e8
+timeCreated: 1463077916
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Male Ant_0
+    21300002: Male Ant_1
+    21300004: up1
+    21300006: up2
+    21300008: up3
+    21300010: Male Ant W1
+    21300012: Male Ant W2
+    21300014: Male Ant W3
+    21300016: d1
+    21300018: d2
+    21300020: Male Ant_10
+    21300022: Male Ant_11
+    21300024: d3
+    21300026: Male Ant W4
+    21300028: Male Ant W5
+    21300030: Male Ant W6
+    21300032: Male Ant_16
+    21300034: Male Ant_17
+    21300036: d5
+    21300038: d6
+    21300040: d4
+    21300042: Male Ant_21
+    21300044: Male Ant_22
+    21300046: Male Ant_23
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Male Ant_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 281
+        width: 39
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 13.5, y: -7.5}
+        - {x: 19.5, y: -7.5}
+        - {x: 19.5, y: 48.5}
+        - {x: -19.5, y: 48.5}
+        - {x: -19.5, y: -37.5}
+        - {x: -7.5, y: -48.5}
+        - {x: 17.5, y: -48.5}
+        - {x: 19.5, y: -38.5}
+        - {x: 19.5, y: -9.5}
+        - {x: 15.5, y: -7.5}
+    - name: Male Ant_1
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 281
+        width: 41
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.5, y: 48}
+        - {x: -20.5, y: -48}
+        - {x: 18.5, y: -48}
+        - {x: 20.5, y: -46}
+        - {x: 20.5, y: 48}
+    - name: up1
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 281
+        width: 51
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25.5, y: 49}
+        - {x: -25.5, y: -26}
+        - {x: -23.5, y: -45}
+        - {x: -16.5, y: -49}
+        - {x: 25.5, y: -49}
+        - {x: 25.5, y: 34}
+        - {x: 20.5, y: 49}
+    - name: up2
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 281
+        width: 39
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19.5, y: -34}
+        - {x: 19.5, y: -9}
+        - {x: 15.5, y: -6}
+        - {x: 13.5, y: -6}
+        - {x: 19.5, y: -6}
+        - {x: 19.5, y: 50}
+        - {x: -19.5, y: 50}
+        - {x: -19.5, y: -35}
+        - {x: -10.5, y: -50}
+        - {x: 10.5, y: -50}
+    - name: up3
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 283
+        width: 59
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.5, y: 49.5}
+        - {x: -28.5, y: 3.5}
+        - {x: -29.5, y: 1.5}
+        - {x: -29.5, y: -49.5}
+        - {x: 2.5, y: -49.5}
+        - {x: 19.5, y: -37.5}
+        - {x: 29.5, y: -26.5}
+        - {x: 29.5, y: 49.5}
+    - name: Male Ant W1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 207
+        width: 77
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11.5, y: -28}
+        - {x: -13.5, y: -24}
+        - {x: -10.5, y: -24}
+        - {x: -11.5, y: -30}
+        - {x: 38.5, y: -30}
+        - {x: 38.5, y: 13}
+        - {x: 19.5, y: 30}
+        - {x: 5.5, y: 30}
+        - {x: 3.5, y: 24}
+        - {x: -27.5, y: 14}
+        - {x: -38.5, y: -1}
+        - {x: -38.5, y: -26}
+        - {x: -34.5, y: -30}
+        - {x: -11.5, y: -30}
+    - name: Male Ant W2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 207
+        width: 77
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0.5, y: 29.5}
+        - {x: -3.5, y: 21.5}
+        - {x: -38.5, y: 2.5}
+        - {x: -38.5, y: -25.5}
+        - {x: -37.5, y: -29.5}
+        - {x: 22.5, y: -29.5}
+        - {x: 38.5, y: -21.5}
+        - {x: 38.5, y: 4.5}
+        - {x: 15.5, y: 29.5}
+    - name: Male Ant W3
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 207
+        width: 77
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 36.5, y: -27}
+        - {x: 38.5, y: -22}
+        - {x: 38.5, y: 4}
+        - {x: 19.5, y: 30}
+        - {x: 5.5, y: 30}
+        - {x: 3.5, y: 24}
+        - {x: -38.5, y: 3}
+        - {x: -38.5, y: -22}
+        - {x: -33.5, y: -30}
+        - {x: -11.5, y: -30}
+        - {x: -11.5, y: -28}
+        - {x: -10.5, y: -30}
+        - {x: 26.5, y: -30}
+    - name: d1
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 204
+        width: 90
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 41, y: 30.5}
+        - {x: 23, y: 30.5}
+        - {x: 21, y: 29.5}
+        - {x: -5, y: 17.5}
+        - {x: -7, y: 17.5}
+        - {x: -3, y: 18.5}
+        - {x: -3, y: 30.5}
+        - {x: -7, y: 30.5}
+        - {x: -44, y: 23.5}
+        - {x: -45, y: 19.5}
+        - {x: -45, y: -13.5}
+        - {x: -19, y: -30.5}
+        - {x: 25, y: -30.5}
+        - {x: 39, y: -20.5}
+        - {x: 45, y: 2.5}
+        - {x: 45, y: 28.5}
+    - name: d2
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 202
+        width: 84
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 36, y: 32}
+        - {x: 31, y: 27}
+        - {x: 22, y: 32}
+        - {x: 15, y: 32}
+        - {x: 14, y: 31}
+        - {x: 14, y: 29}
+        - {x: 16, y: 26}
+        - {x: -2, y: 21}
+        - {x: -10, y: 14}
+        - {x: -12, y: 12}
+        - {x: -12, y: 10}
+        - {x: -18, y: 10}
+        - {x: -12, y: 13}
+        - {x: -10, y: 15}
+        - {x: -9, y: 19}
+        - {x: -16, y: 22}
+        - {x: -41, y: 25}
+        - {x: -42, y: 22}
+        - {x: -42, y: -32}
+        - {x: 42, y: -32}
+        - {x: 42, y: 32}
+    - name: d3
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 205
+        width: 75
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 36.5, y: 14}
+        - {x: 12.5, y: 37}
+        - {x: -30.5, y: 37}
+        - {x: -37.5, y: 27}
+        - {x: -37.5, y: -37}
+        - {x: 22.5, y: -37}
+        - {x: 37.5, y: -21}
+        - {x: 37.5, y: 10}
+    - name: Male Ant W4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 124
+        width: 77
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16.5, y: 7}
+        - {x: -2.5, y: 30}
+        - {x: -27.5, y: 30}
+        - {x: -38.5, y: 4}
+        - {x: -38.5, y: -30}
+        - {x: 38.5, y: -30}
+        - {x: 38.5, y: 3}
+        - {x: 34.5, y: 6}
+    - name: Male Ant W5
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 124
+        width: 77
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18.5, y: 29.5}
+        - {x: -38.5, y: 6.5}
+        - {x: -38.5, y: -18.5}
+        - {x: -30.5, y: -28.5}
+        - {x: -17.5, y: -29.5}
+        - {x: 38.5, y: -29.5}
+        - {x: 38.5, y: 24.5}
+        - {x: 32.5, y: 29.5}
+    - name: Male Ant W6
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 124
+        width: 77
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 38.5, y: -24}
+        - {x: 38.5, y: 17}
+        - {x: 3.5, y: 30}
+        - {x: -31.5, y: 30}
+        - {x: -38.5, y: 16}
+        - {x: -38.5, y: -21}
+        - {x: -35.5, y: -30}
+        - {x: 11.5, y: -30}
+        - {x: 10.5, y: -24}
+        - {x: 11.5, y: -30}
+        - {x: 33.5, y: -30}
+    - name: d5
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 118
+        width: 84
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 10, y: 18}
+        - {x: 10, y: 15}
+        - {x: 12, y: 13}
+        - {x: 10, y: 14}
+        - {x: 6, y: 14}
+        - {x: 4, y: 13}
+        - {x: 4, y: 6}
+        - {x: 2, y: 7}
+        - {x: -3, y: 9}
+        - {x: -9, y: 32}
+        - {x: -42, y: 32}
+        - {x: -42, y: -22}
+        - {x: -32, y: -32}
+        - {x: 28, y: -32}
+        - {x: 42, y: -24}
+        - {x: 42, y: 12}
+        - {x: 16, y: 27}
+    - name: d6
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 120
+        width: 91
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 18.5, y: 30.5}
+        - {x: 1.5, y: 24.5}
+        - {x: 5.5, y: 19.5}
+        - {x: 7.5, y: 17.5}
+        - {x: 12.5, y: 18.5}
+        - {x: 7.5, y: 17.5}
+        - {x: 5.5, y: 17.5}
+        - {x: 2.5, y: 14.5}
+        - {x: -16.5, y: 30.5}
+        - {x: -45.5, y: 30.5}
+        - {x: -45.5, y: -28.5}
+        - {x: -41.5, y: -30.5}
+        - {x: 35.5, y: -30.5}
+        - {x: 45.5, y: -26.5}
+        - {x: 45.5, y: 30.5}
+    - name: d4
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 121
+        width: 75
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 37.5, y: -3}
+        - {x: 15.5, y: 11}
+        - {x: 7.5, y: 1}
+        - {x: 10.5, y: 27}
+        - {x: 2.5, y: 37}
+        - {x: -11.5, y: 37}
+        - {x: -19.5, y: 34}
+        - {x: -37.5, y: 10}
+        - {x: -37.5, y: -17}
+        - {x: -35.5, y: -25}
+        - {x: -14.5, y: -37}
+        - {x: 19.5, y: -37}
+        - {x: 19.5, y: -33}
+        - {x: 26.5, y: -37}
+        - {x: 37.5, y: -37}
+    - name: Male Ant_21
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 0
+        width: 50
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25, y: -31}
+        - {x: 25, y: -1}
+        - {x: 24, y: 1}
+        - {x: 18, y: 26}
+        - {x: 13, y: 37}
+        - {x: -7, y: 49}
+        - {x: -25, y: 49}
+        - {x: -25, y: -49}
+        - {x: 25, y: -49}
+        - {x: 25, y: -41}
+        - {x: 24, y: -40}
+    - name: Male Ant_22
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 0
+        width: 42
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 50}
+        - {x: -21, y: 35}
+        - {x: -21, y: -50}
+        - {x: 21, y: -50}
+        - {x: 21, y: 39}
+        - {x: 17, y: 50}
+    - name: Male Ant_23
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 0
+        width: 58
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 50}
+        - {x: -29, y: 35}
+        - {x: -29, y: -50}
+        - {x: -25, y: -50}
+        - {x: -16, y: -47}
+        - {x: -12, y: -41}
+        - {x: -1, y: -50}
+        - {x: 19, y: -50}
+        - {x: 29, y: -20}
+        - {x: 29, y: 50}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
