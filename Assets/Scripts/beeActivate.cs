@@ -24,10 +24,6 @@ public class beeActivate : MonoBehaviour {
 
 					GetComponent<beeTalking> ().isTalking = true;
 
-//					if (!GetComponent<beeTalking> ().talked) {
-//						GetComponent<beeTalking> ().currentLine = 0;
-//						GetComponent<beeTalking> ().isTalking = true;
-//					}
 				}
 			}
 		}

@@ -67,7 +67,7 @@ public class antTalking : MonoBehaviour {
 				
 				theText.text = textLines [currentLine];
 
-				if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
+				if (Input.GetMouseButtonDown (0)) {
 					
 					if (currentLine >= endAtLine) {
 						
@@ -85,7 +85,7 @@ public class antTalking : MonoBehaviour {
 				if (showDance) {
 					theText.text = "We'll dance together for you!";
 
-					if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
+					if (Input.GetMouseButtonDown (0)) {
 						DisableTextBox ();
 					}
 				}
@@ -96,7 +96,7 @@ public class antTalking : MonoBehaviour {
 					if (foundPartner) {
 						EnableQuestButton ();
 					}else{
-						if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
+						if (Input.GetMouseButtonDown (0)) {
 							DisableTextBox ();
 						}
 					}
@@ -116,7 +116,7 @@ public class antTalking : MonoBehaviour {
 
 			DisableQuestButton ();
 
-			if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
+			if (Input.GetMouseButtonDown (0)) {
 				DisableTextBox ();
 			}		
 		}
@@ -201,30 +201,5 @@ public class antTalking : MonoBehaviour {
 		questComplete = true;
 		findPartner = false;
 	}
-
-//	public void Reset(){
-//		currentLine = 0;
-//		endAtLine = 1;
-//
-//		clicked = 0;
-//
-//		isTalking = false;
-//		showDance = false;
-//		findPartner = false;
-//
-//		if (textFiles != null) {
-//			textLines = (textFiles.text.Split('\n'));
-//		}
-//
-//		//		if (endAtLine == 0) {
-//		//			endAtLine = textLines.Length - 1;
-//		//		}
-//
-//		DisableTextBox();
-//		DisableButton();
-//
-//
-//	}
-		
 }
 

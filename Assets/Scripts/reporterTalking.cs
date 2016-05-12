@@ -49,7 +49,7 @@ public class reporterTalking : MonoBehaviour {
 			EnableTextBox ();
 			theText.text = textLines [currentLine];
 
-			if (Input.GetKeyDown (KeyCode.Return)) {
+			if (Input.GetMouseButtonDown (0)) {
 				currentLine++;
 			}
 
@@ -71,11 +71,9 @@ public class reporterTalking : MonoBehaviour {
 
 		//start Game
 		if (!isTalking) {
-			//SceneManager.LoadScene(1);
 			if(!fade.fadeOut){
 				fade.FadeOut();
 			}
-			//isTalking = true;
 		}
 
 	}

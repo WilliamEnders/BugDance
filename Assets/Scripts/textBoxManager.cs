@@ -85,7 +85,7 @@ public class textBoxManager : MonoBehaviour {
 				theText.text = textLines [currentLine];
 
 				if (currentLine < endAtLine) {
-					if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
+					if (Input.GetMouseButtonDown (0)) {
 						currentLine++;
 					}
 				}
@@ -105,7 +105,7 @@ public class textBoxManager : MonoBehaviour {
 				if (showDance) {
 					theText.text = "Hold your camera!";
 
-					if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
+					if (Input.GetMouseButtonDown (0)) {
 						DisableTextBox ();
 					}
 				}
@@ -116,7 +116,7 @@ public class textBoxManager : MonoBehaviour {
 					if (foundLeave) {
 						EnableQuestButton ();
 					}else{
-						if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
+						if (Input.GetMouseButtonDown (0)) {
 							DisableTextBox ();
 						}
 					}
@@ -132,7 +132,7 @@ public class textBoxManager : MonoBehaviour {
 
 			DisableQuestButton ();
 
-			if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
+			if (Input.GetMouseButtonDown (0)) {
 				DisableTextBox ();
 				theText.text = "Hold your camera!";
 

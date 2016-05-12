@@ -69,23 +69,10 @@ public class beeTalking : MonoBehaviour {
 			EnableTextBox ();
 
 			if (!talked) {
-				
-//				theText.text = textLines [currentLine];
-//
-//				if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
-//					currentLine++;
-//				}
-//
-//				if (currentLine == endAtLine) {
-//
-//					EnableButton ();
-//
-//				} else if (currentLine > endAtLine) {
-//				}
 
 				theText.text = textLines [currentLine];
 
-				if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
+				if (Input.GetMouseButtonDown (0)) {
 
 					if (currentLine >= endAtLine) {
 
@@ -103,7 +90,7 @@ public class beeTalking : MonoBehaviour {
 				if (showDance) {
 					theText.text = "Come on, guys, dance time!";
 
-					if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
+					if (Input.GetMouseButtonDown (0)) {
 						DisableTextBox ();
 					}
 
@@ -114,7 +101,6 @@ public class beeTalking : MonoBehaviour {
 					
 						EnableQuestButton ();
 
-//					if (correctAnswers == 0 && answered == false) {
 						if (correctAnswers == 0) {
 							
 							currentLine = 14;
@@ -124,7 +110,7 @@ public class beeTalking : MonoBehaviour {
 
 					} else {
 					
-						if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
+						if (Input.GetMouseButtonDown (0)) {
 							DisableTextBox ();
 						}
 					}
@@ -142,7 +128,7 @@ public class beeTalking : MonoBehaviour {
 			currentLine = 29;
 			DisableQuestButton ();
 
-			if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
+			if (Input.GetMouseButtonDown (0)) {
 				DisableTextBox ();
 				DisableButton ();
 				showDance = true;
