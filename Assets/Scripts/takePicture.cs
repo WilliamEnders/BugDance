@@ -58,7 +58,7 @@ public class takePicture : MonoBehaviour {
 			}
 		}
 
-		if(pickUp && Input.GetMouseButtonDown (1)){
+		if(pickUp && Input.GetMouseButtonDown (1) && invNum < inventory.Length){
 			
 			inventory [invNum] = temp;
 			Destroy (temp.GetComponent<Rigidbody>());
@@ -153,13 +153,15 @@ public class takePicture : MonoBehaviour {
 			pol.GetComponent<Renderer> ().material.mainTexture = tex2D;
 			pol.GetComponent<Renderer> ().material.SetTextureScale ("_MainTex", new Vector2(1/Camera.main.aspect,1f));
 			pol.GetComponent<Renderer> ().material.SetTextureOffset ("_MainTex", new Vector2((1-(1/Camera.main.aspect))*.5f,0f));
+			pol.GetComponent<pictureInfo> ().texture = tex2D;
 
-			if (Physics.Raycast (transform.position + transform.forward, transform.forward, out hit, 100.0f,layerMask)) {
+			if (Physics.Raycast (transform.position + transform.forward, transform.forward, out hit, 100.0f, layerMask)) {
 				pol.GetComponent<pictureInfo> ().subject = hit.transform.name;
-				pol.GetComponent<pictureInfo> ().texture = tex2D;
-				if(hit.transform.CompareTag("Character")){
-				pol.GetComponent<pictureInfo> ().isDancing = hit.transform.GetComponent<textBoxManager> ().showDance;
+				if (hit.transform.CompareTag ("Character")) {
+					pol.GetComponent<pictureInfo> ().isDancing = hit.transform.GetComponent<textBoxManager> ().showDance;
 				}
+			} else {
+				pol.GetComponent<pictureInfo> ().subject = "Nothing";
 			}
 			pol.transform.GetComponent<Rigidbody> ().useGravity = false;
 			pol.transform.parent = transform;
