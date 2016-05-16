@@ -75,10 +75,13 @@ public class textBoxManager : MonoBehaviour {
 			move.canMove = true;
 		}
 
+
+//		print (isTalking);
+
 		//begin dialog
 //		if (isActive) {
 		if (isTalking) {
-			
+
 			EnableTextBox ();
 		
 			if (!talked) {
@@ -153,6 +156,7 @@ public class textBoxManager : MonoBehaviour {
 		textBox.SetActive(true);
 		dialog.SetActive(true);
 
+//		print ("enabled.");
 //		isActive = true;
 //
 //		isTalking = true;
@@ -206,7 +210,7 @@ public class textBoxManager : MonoBehaviour {
 	public void LoadNextDialogue1(){
 
 		leftClicked++;
-//		print ("leftClicked:" + leftClicked + ", rightClicked:" + rightClicked);
+		print ("leftClicked:" + leftClicked + ", rightClicked:" + rightClicked);
 
 		if (isTalking) {
 			
@@ -256,7 +260,8 @@ public class textBoxManager : MonoBehaviour {
 		if (isTalking) {
 			
 			if (rightClicked == 1) {
-				theText.text = textLines [7];
+				//theText.text = textLines [7];
+				currentLine = 7;
 				leftButtonText.text = "I'm a reporter, can you dance now?";
 				rightButtonText.text = "Can I take a picture of your happy dance?";
 			}
@@ -270,7 +275,7 @@ public class textBoxManager : MonoBehaviour {
 			*/
 
 			if (leftClicked == 1 && rightClicked == 1 || leftClicked == 0 && rightClicked == 2) {
-				theText.text = textLines [14];
+				currentLine = 14;
 				rightButtonText.text = "Ok.";
 
 				LeftButton.SetActive (false);

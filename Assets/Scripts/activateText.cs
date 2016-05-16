@@ -40,7 +40,7 @@ public class activateText : MonoBehaviour {
 		if (Physics.Raycast (cam.transform.position, cam.transform.forward, out hit, 100.0f)) {
 			if (other.tag == "Player" && Input.GetMouseButtonDown (0) && !cam.GetComponent<takePicture> ().cameraMode) {
 				if (hit.transform.CompareTag ("Character")) {
-					mouse.SetActive (false);
+					mouse.SetActive (true);
 					mouse.GetComponent<Animator> ().SetBool ("canTalk", true);
 					move.canMove = false;
 

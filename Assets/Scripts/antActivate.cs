@@ -16,7 +16,7 @@ public class antActivate : MonoBehaviour {
 
 	void OnTriggerStay(Collider other){
 
-		if (other.tag == "Player" && Input.GetMouseButtonDown (0)&& !cam.GetComponent<takePicture>().cameraMode) {
+		if (other.tag == "Player" && Input.GetMouseButtonDown (0) && !cam.GetComponent<takePicture>().cameraMode) {
 			if (Physics.Raycast (cam.transform.position, cam.transform.forward, out hit, 100.0f)) {
 				if (hit.transform.CompareTag ("Ant")) {
 
