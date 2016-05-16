@@ -16,9 +16,10 @@ public class beeActivate : MonoBehaviour {
 
 	void OnTriggerStay(Collider other){
 
-		if (other.tag == "Player" && Input.GetMouseButtonDown (0)&& !cam.GetComponent<takePicture>().cameraMode) {
+		if (other.tag == "Player" && !cam.GetComponent<takePicture>().cameraMode) {
 			if (Physics.Raycast (cam.transform.position, cam.transform.forward, out hit, 100.0f)) {
-				if (hit.transform.CompareTag ("Bee")) {
+				if (hit.transform.CompareTag ("Bee") && Input.GetMouseButtonDown (0)) {
+
 
 					move.canMove = false;
 

@@ -21,6 +21,8 @@ public class textBoxManager : MonoBehaviour {
 	int rightClicked;
 	public Text leftButtonText;
 	public Text rightButtonText;
+	public Text questButtonText;
+	bool clicked;
 
 	public int currentLine;
 	public int endAtLine;
@@ -106,7 +108,7 @@ public class textBoxManager : MonoBehaviour {
 			} else { 
 
 				if (showDance) {
-					theText.text = "Hold your camera!";
+					theText.text = "Let me dance for you! Hold your camera!";
 
 					if (Input.GetMouseButtonDown (0)) {
 						DisableTextBox ();
@@ -118,9 +120,20 @@ public class textBoxManager : MonoBehaviour {
 
 					if (foundLeave) {
 						EnableQuestButton ();
-					}else{
-						if (Input.GetMouseButtonDown (0)) {
+						questButtonText.text = "Yep, I found you some great leaves! Give it a try!";
+
+						if(clicked){
 							DisableTextBox ();
+							clicked = false;
+						}
+					}else{
+						EnableQuestButton ();
+						questButtonText.text = "Not yet. I'll keep looking.";
+							
+						if(clicked){
+							DisableQuestButton ();
+							DisableTextBox ();
+							clicked = false;
 						}
 					}
 				}
@@ -156,7 +169,7 @@ public class textBoxManager : MonoBehaviour {
 		textBox.SetActive(true);
 		dialog.SetActive(true);
 
-//		print ("enabled.");
+		print ("enabled.");
 //		isActive = true;
 //
 //		isTalking = true;
@@ -164,7 +177,8 @@ public class textBoxManager : MonoBehaviour {
 	}
 
 	public void DisableTextBox(){
-		
+		print ("disabled.");
+
 		textBox.SetActive(false);
 		dialog.SetActive(false);
 
@@ -239,17 +253,18 @@ public class textBoxManager : MonoBehaviour {
 				findLeave = true;
 			}
 
+			if (leftClicked == 3 || (leftClicked == 2 && rightClicked == 1)) {
+				DisableButton ();
+				DisableTextBox ();
+
+				showDance = true;
+				isTalking = false;
+
+				talked = true;
+			}
+
 		}
 
-		if (leftClicked == 3 || (leftClicked == 2 && rightClicked == 1)) {
-			DisableButton ();
-			DisableTextBox ();
-
-			showDance = true;
-			isTalking = false;
-
-			talked = true;
-		}
 	}
 
 	public void LoadNextDialogue2(){
@@ -282,25 +297,29 @@ public class textBoxManager : MonoBehaviour {
 
 				findLeave = true;
 			}
+			if (rightClicked == 3 || (leftClicked == 1 && rightClicked == 2)) {
 
+				DisableButton ();
+				DisableTextBox ();
+
+				isTalking = false;
+
+				talked = true;
+
+			}
 		}
 
-		if (rightClicked == 3 || (leftClicked == 1 && rightClicked == 2)) {
-			
-			DisableButton ();
-			DisableTextBox ();
 
-			isTalking = false;
-
-			talked = true;
-
-		}
 	}
 
 	public void CompleteQuest(){
-		
-		questComplete = true;
-		findLeave = false;
+		if (foundLeave) {
+			questComplete = true;
+			findLeave = false;
+		}
 	}
 
+	public void QuestButtonClick(){
+		clicked = true;
+	}
 }
