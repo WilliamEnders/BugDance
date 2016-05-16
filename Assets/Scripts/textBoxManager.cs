@@ -169,20 +169,13 @@ public class textBoxManager : MonoBehaviour {
 		textBox.SetActive(true);
 		dialog.SetActive(true);
 
-		print ("enabled.");
-//		isActive = true;
-//
-//		isTalking = true;
-
 	}
 
 	public void DisableTextBox(){
-		print ("disabled.");
+//		print ("disabled.");
 
 		textBox.SetActive(false);
 		dialog.SetActive(false);
-
-//		isActive = false;
 
 		isTalking = false;
 	}
