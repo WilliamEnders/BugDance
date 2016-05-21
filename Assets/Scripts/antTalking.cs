@@ -17,6 +17,8 @@ public class antTalking : MonoBehaviour {
 	public GameObject DialogueButton;
 	public GameObject QuestButton;
 	public Text dialogueText;
+	public Text questButtonText;
+	bool questClicked;
 	int clicked;
 
 	public bool isTalking;
@@ -93,11 +95,15 @@ public class antTalking : MonoBehaviour {
 				if (findPartner) {
 					theText.text = "Did you find me a cute little guy?";
 
-					if (foundPartner) {
+					if (!foundPartner) {
+						
 						EnableQuestButton ();
-					}else{
-						if (Input.GetMouseButtonDown (0)) {
+						questButtonText.text = "Oh, I'm trying!";
+
+						if(questClicked){
+							DisableQuestButton ();
 							DisableTextBox ();
+							questClicked = false;
 						}
 					}
 				}
@@ -197,9 +203,14 @@ public class antTalking : MonoBehaviour {
 	}
 
 	public void CompleteQuest(){
+		if (foundPartner) {
+			questComplete = true;
+			findPartner = false;
+		}
+	}
 
-		questComplete = true;
-		findPartner = false;
+	public void QuestButtonClick(){
+		questClicked = true;
 	}
 
 	void OnTriggerEnter(Collider other){

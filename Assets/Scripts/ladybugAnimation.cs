@@ -5,62 +5,33 @@ public class ladybugAnimation : MonoBehaviour {
 
 	Animator animator;
 
-		float timer;
-		float timeGap;
+	float timer;
+	float timeGap;
+		
+	int randomAnim;
 
-		int randomAnim;
+	void Start () {
 
-		// Use this for initialization
-		void Start () {
+		animator = GetComponent<Animator>();
 
-			animator = GetComponent<Animator>();
+		timer = 0;
+		timeGap = 2;
+		randomAnim = 0;
+	}
 
+	void Update () {
+
+		timer += Time.deltaTime;
+	
+		if (timer >= timeGap * 2) {
+			randomAnim = Random.Range(0, 3);
 			timer = 0;
-			timeGap = 2;
-
-			randomAnim = 0;
 		}
+	
+		ChangeAnim ();
+	}
 
-		// Update is called once per frame
-		void Update () {
-
-			timer += Time.deltaTime;
-
-			if (timer >= timeGap * 2) {
-
-				randomAnim = Random.Range(0, 3);
-				timer = 0;
-			}
-
-			ChangeAnim ();
-		}
-
-		void ChangeAnim ()
-		{
-			//talk
-			if (randomAnim == 0) {
-
-				animator.SetBool ("isTalking", true);
-				animator.SetBool ("isWalking", false);
-				animator.SetBool ("isDancing", false);
-
-			}
-			//walk
-			if (randomAnim == 1) {
-
-				animator.SetBool ("isTalking", false);
-				animator.SetBool ("isWalking", true);
-				animator.SetBool ("isDancing", false);
-
-			}
-			//dance
-			if (randomAnim == 2) {
-
-				animator.SetBool ("isTalking", false);
-				animator.SetBool ("isWalking", false);
-				animator.SetBool ("isDancing", true);
-
-			}
+	void ChangeAnim (){
 			//idle
 			if (randomAnim == 3) {
 
@@ -69,6 +40,29 @@ public class ladybugAnimation : MonoBehaviour {
 				animator.SetBool ("isDancing", false);
 
 			}
+		//dance
+		else if (randomAnim == 2) {
+
+			animator.SetBool ("isTalking", false);
+			animator.SetBool ("isWalking", false);
+			animator.SetBool ("isDancing", true);
+
+		}
+		//walk
+		else if (randomAnim == 1) {
+
+			animator.SetBool ("isTalking", false);
+			animator.SetBool ("isWalking", true);
+			animator.SetBool ("isDancing", false);
+
+		}
+		//talk
+		else if (randomAnim == 0) {
+
+			animator.SetBool ("isTalking", true);
+			animator.SetBool ("isWalking", false);
+			animator.SetBool ("isDancing", false);
+
 		}
 	}
-
+}

@@ -23,6 +23,7 @@ public class activateText : MonoBehaviour {
 			mouse.SetActive (true);
 			mouse.GetComponent<Animator> ().SetBool ("canTalk", true);
 		}
+
 		if(other.CompareTag("PickUp") && other.name == "Leaf" && other.transform.parent == null && GetComponent<textBoxManager>().findLeave){
 			GetComponent<textBoxManager> ().foundLeave = true;
 			GetComponent<AudioSource> ().Play ();
@@ -38,20 +39,22 @@ public class activateText : MonoBehaviour {
 
 	void OnTriggerStay(Collider other){
 		if (Physics.Raycast (cam.transform.position, cam.transform.forward, out hit, 100.0f)) {
-			if (other.tag == "Player" && Input.GetMouseButtonDown (0) && !cam.GetComponent<takePicture> ().cameraMode) {
+			if (other.tag == "Player" && !cam.GetComponent<takePicture> ().cameraMode) {
 				if (hit.transform.CompareTag ("Character")) {
-					mouse.SetActive (false);
+					mouse.SetActive (true);
 					mouse.GetComponent<Animator> ().SetBool ("canTalk", true);
-					move.canMove = false;
 
-					GetComponent<textBoxManager> ().isActive = true;
-					GetComponent<textBoxManager> ().isTalking = true;
+					if (Input.GetMouseButtonDown (0)) {
+						move.canMove = false;
 
+						GetComponent<textBoxManager> ().isActive = true;
+						GetComponent<textBoxManager> ().isTalking = true;
+					}
 				}
+			} else {
+				mouse.SetActive (false);
+				mouse.GetComponent<Animator> ().SetBool ("canTalk", false);
 			}
-		} else {
-			mouse.SetActive (false);
-			mouse.GetComponent<Animator> ().SetBool ("canTalk", false);
 		}
 	}
 }

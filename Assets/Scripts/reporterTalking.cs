@@ -63,9 +63,9 @@ public class reporterTalking : MonoBehaviour {
 		}
 
 		if (playerTalking) {
-			anim.SetBool ("talking", true);
+			anim.SetBool ("isTalking", true);
 		} else {
-			anim.SetBool ("talking", false);
+			anim.SetBool ("isTalking", false);
 		}
 
 

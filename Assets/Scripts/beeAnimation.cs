@@ -15,7 +15,7 @@ public class beeAnimation : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (GetComponent<beeTalking> ().showDance) {
+		if (GameObject.FindObjectOfType<beeTalking> ().showDance) {
 			animator.SetBool ("dance", true);
 		}
 	}
